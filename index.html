@@ -5,181 +5,333 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Auction App | تطبيق المزاد</title>
 
-  <!-- Google Font (Arabic friendly) -->
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
   <style>
-    * { box-sizing: border-box; }
+    :root {
+      --primary-gold: #d4af37;
+      --deep-green: #0a2e2a;
+      --accent-green: #1a4d47;
+      --glass: rgba(255, 255, 255, 0.05);
+      --glass-border: rgba(255, 255, 255, 0.1);
+      --text-main: #ffffff;
+      --text-dim: #b0b0b0;
+    }
+
+    * { box-sizing: border-box; transition: all 0.3s ease; }
 
     body {
       margin: 0;
       font-family: 'Cairo', sans-serif;
-      background: radial-gradient(circle at top, #1c2b2b, #0b1414);
-      color: #f5f5f5;
+      background: radial-gradient(circle at top right, #14332f, #050a0a);
+      color: var(--text-main);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* زخرفة إسلامية خفيفة في الخلفية */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background-image: url('https://www.transparenttextures.com/patterns/arabesque.png');
+      opacity: 0.03;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .nav-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 5%;
+    }
+
+    .lang-switch button {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 12px;
+      cursor: pointer;
+      font-family: 'Cairo';
+      backdrop-filter: blur(10px);
+    }
+
+    .lang-switch button:hover {
+      background: var(--primary-gold);
+      color: #000;
     }
 
     header {
-      padding: 50px 20px 30px;
+      padding: 60px 20px;
       text-align: center;
     }
 
     header h1 {
-      font-size: 36px;
-      margin-bottom: 10px;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 800;
+      margin-bottom: 20px;
+      background: linear-gradient(to bottom, #fff, var(--primary-gold));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     header p {
-      font-size: 17px;
-      color: #cfcfcf;
-      max-width: 600px;
+      font-size: 1.1rem;
+      color: var(--text-dim);
+      max-width: 700px;
       margin: auto;
     }
 
-    .lang-switch {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-    }
-
-    .lang-switch button {
-      background: none;
-      border: 1px solid #aaa;
-      color: #fff;
-      padding: 6px 12px;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-
     .container {
-      max-width: 1000px;
+      max-width: 1100px;
       margin: auto;
       padding: 20px;
     }
 
     .hero {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 50px;
       align-items: center;
+      justify-content: center;
+      margin-top: 40px;
     }
 
-    .hero img {
+    .hero-content {
+      flex: 1;
+      min-width: 300px;
+      text-align: right;
+    }
+
+    .hero-image {
+      flex: 1;
+      min-width: 300px;
+      position: relative;
+    }
+
+    .hero-image img {
       width: 100%;
-      border-radius: 20px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+      max-width: 400px;
+      display: block;
+      margin: auto;
+      border-radius: 40px;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+      border: 4px solid var(--glass-border);
     }
 
-    .buttons a {
-      display: inline-block;
-      margin: 10px 10px 0 0;
-      padding: 14px 22px;
-      border-radius: 14px;
-      font-weight: bold;
+    /* توهج خلف الصورة */
+    .hero-image::after {
+      content: "";
+      position: absolute;
+      top: 50%; left: 50%;
+      width: 80%; height: 80%;
+      background: var(--primary-gold);
+      filter: blur(120px);
+      opacity: 0.15;
+      z-index: -1;
+      transform: translate(-50%, -50%);
+    }
+
+    .buttons {
+      display: flex;
+      gap: 15px;
+      margin-top: 30px;
+    }
+
+    .btn {
+      flex: 1;
+      padding: 16px;
+      border-radius: 16px;
+      font-weight: 700;
       text-decoration: none;
-      transition: 0.3s ease;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
     }
 
     .btn-android {
-      background: linear-gradient(135deg, #3ddc84, #1fa76a);
+      background: var(--primary-gold);
       color: #000;
+      box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2);
     }
 
     .btn-ios {
-      background: linear-gradient(135deg, #ffffff, #dcdcdc);
-      color: #000;
+      background: var(--glass);
+      color: #fff;
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(10px);
+    }
+
+    .btn:hover {
+      transform: translateY(-5px);
+      filter: brightness(1.1);
     }
 
     .section {
-      margin-top: 70px;
-      text-align: center;
+      margin-top: 100px;
     }
 
     .section h2 {
-      font-size: 28px;
-      margin-bottom: 20px;
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 50px;
+      position: relative;
+    }
+
+    .section h2::after {
+      content: "";
+      position: absolute;
+      bottom: -10px; left: 50%;
+      width: 50px; height: 3px;
+      background: var(--primary-gold);
+      transform: translateX(-50%);
     }
 
     .features {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 25px;
     }
 
     .feature {
-      background: rgba(255,255,255,0.05);
-      padding: 25px;
-      border-radius: 18px;
-      border: 1px solid rgba(255,255,255,0.08);
+      background: var(--glass);
+      padding: 35px 25px;
+      border-radius: 24px;
+      border: 1px solid var(--glass-border);
+      text-align: center;
+      backdrop-filter: blur(10px);
     }
 
-    .feature span {
-      font-size: 30px;
+    .feature:hover {
+      border-color: var(--primary-gold);
+      background: rgba(212, 175, 55, 0.05);
+    }
+
+    .feature .icon {
+      font-size: 40px;
+      margin-bottom: 20px;
       display: block;
+      filter: drop-shadow(0 0 10px var(--primary-gold));
+    }
+
+    .feature h3 {
+      font-size: 1.2rem;
       margin-bottom: 10px;
     }
 
-    footer {
-      margin-top: 80px;
-      padding: 30px 20px;
-      text-align: center;
-      font-size: 14px;
-      color: #aaa;
-      border-top: 1px solid rgba(255,255,255,0.1);
+    .feature p {
+      color: var(--text-dim);
+      font-size: 0.95rem;
     }
 
-    footer a {
-      color: #aaa;
-      margin: 0 10px;
+    footer {
+      margin-top: 100px;
+      padding: 40px 20px;
+      text-align: center;
+      background: rgba(0,0,0,0.3);
+    }
+
+    .footer-links a {
+      color: var(--text-dim);
+      margin: 0 15px;
       text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    .footer-links a:hover { color: var(--primary-gold); }
+
+    .copyright {
+      margin-top: 20px;
+      font-size: 0.8rem;
+      color: #666;
     }
 
     /* Responsive */
-    @media (max-width: 800px) {
-      .hero { grid-template-columns: 1fr; }
-      header h1 { font-size: 28px; }
+    @media (max-width: 768px) {
+      .hero-content { text-align: center; order: 2; }
+      .hero-image { order: 1; }
+      .buttons { flex-direction: column; }
+      .lang-switch { margin: auto; }
     }
   </style>
 </head>
 <body>
 
-<div class="lang-switch">
-  <button onclick="toggleLang()">EN / AR</button>
-</div>
+<nav class="nav-bar">
+  <div class="logo" style="font-weight: 800; color: var(--primary-gold);">MJTPA</div>
+  <div class="lang-switch">
+    <button onclick="toggleLang()" id="langBtn">English</button>
+  </div>
+</nav>
 
 <header>
   <h1 id="title">تطبيق المزاد</h1>
-  <p id="subtitle">منصة مزادات رقمية بطابع إسلامي عراقي، تجمع بين الأمان، الأناقة، وسهولة الاستخدام.</p>
+  <p id="subtitle">تجربة مزادات رقمية فريدة، تمزج بين الأصالة العراقية والتكنولوجيا الحديثة للمزايدة بكل ثقة وأمان.</p>
 </header>
 
 <div class="container">
 
   <div class="hero">
-    <div>
+    <div class="hero-content">
+      <h2 id="heroHeading" style="font-size: 1.8rem; margin-bottom: 15px;">ابدأ المزايدة الآن</h2>
+      <p id="heroDesc">انضم إلى آلاف المستخدمين في أول منصة مزادات عراقية تدعم الشفافية الكاملة وتتوافق مع القيم الإسلامية.</p>
+      
       <div class="buttons">
-        <a id="androidBtn" class="btn-android" href="#">⬇️ تحميل للأندرويد</a>
-        <a id="iosBtn" class="btn-ios" href="#"> قريبًا على iOS</a>
+        <a id="androidBtn" class="btn btn-android" href="#">
+           <span>🤖</span> Google Play
+        </a>
+        <a id="iosBtn" class="btn btn-ios" href="#">
+           <span>🍎</span> App Store
+        </a>
       </div>
     </div>
 
-    <!-- صورة التطبيق (ضع لقطة شاشة هنا) -->
-    <img src="screenshot1.png" alt="Auction App Screenshot">
+    <div class="hero-image">
+      <img src="https://via.placeholder.com/400x800/0a2e2a/d4af37?text=App+Preview" alt="Auction App Preview">
+    </div>
   </div>
 
   <div class="section">
-    <h2 id="featuresTitle">مميزات التطبيق</h2>
+    <h2 id="featuresTitle">لماذا تختار تطبيق المزاد؟</h2>
     <div class="features">
-      <div class="feature"><span>⚖️</span><p id="f1">مزادات عادلة وشفافة</p></div>
-      <div class="feature"><span>🕌</span><p id="f2">تصميم إسلامي مستوحى من الهوية العراقية</p></div>
-      <div class="feature"><span>🔔</span><p id="f3">إشعارات فورية</p></div>
-      <div class="feature"><span>🔒</span><p id="f4">حماية وأمان للبيانات</p></div>
+      <div class="feature">
+        <span class="icon">⚖️</span>
+        <h3 id="f1-t">شفافية مطلقة</h3>
+        <p id="f1-p">نظام مزايدة عادل يضمن حقوق البائع والمشتري في كل خطوة.</p>
+      </div>
+      <div class="feature">
+        <span class="icon">🕌</span>
+        <h3 id="f2-t">هوية إسلامية</h3>
+        <p id="f2-p">واجهات مستوحاة من العمارة الإسلامية بروح عصرية عراقية.</p>
+      </div>
+      <div class="feature">
+        <span class="icon">⚡</span>
+        <h3 id="f3-t">سرعة فائقة</h3>
+        <p id="f3-p">تحديثات لحظية لأسعار المزاد لضمان عدم ضياع أي فرصة.</p>
+      </div>
+      <div class="feature">
+        <span class="icon">🔒</span>
+        <h3 id="f4-t">أمان عالي</h3>
+        <p id="f4-p">تشفير كامل للبيانات وعمليات توثيق صارمة للمستخدمين.</p>
+      </div>
     </div>
   </div>
 
 </div>
 
 <footer>
-  <a href="#" onclick="alert(privacyText)">سياسة الخصوصية</a>
-  | © 2026 Mjtpa Ahmed
+  <div class="footer-links">
+    <a href="#" onclick="alert(privacyText)">سياسة الخصوصية</a>
+    <a href="#">الشروط والأحكام</a>
+    <a href="#">اتصل بنا</a>
+  </div>
+  <div class="copyright">
+    © 2026 Mjtpa Ahmed | جميع الحقوق محفوظة
+  </div>
 </footer>
 
 <script>
@@ -187,27 +339,36 @@
 
   function toggleLang() {
     isArabic = !isArabic;
-    document.documentElement.dir = isArabic ? 'rtl' : 'ltr';
-    document.getElementById('title').innerText = isArabic ? 'تطبيق المزاد' : 'Auction App';
-    document.getElementById('subtitle').innerText = isArabic
-      ? 'منصة مزادات رقمية بطابع إسلامي عراقي، تجمع بين الأمان، الأناقة، وسهولة الاستخدام.'
-      : 'A digital auction platform inspired by Iraqi & Islamic identity, combining trust and elegance.';
-    document.getElementById('featuresTitle').innerText = isArabic ? 'مميزات التطبيق' : 'Features';
-    document.getElementById('f1').innerText = isArabic ? 'مزادات عادلة وشفافة' : 'Fair and transparent auctions';
-    document.getElementById('f2').innerText = isArabic ? 'تصميم إسلامي مستوحى من الهوية العراقية' : 'Islamic & Iraqi inspired design';
-    document.getElementById('f3').innerText = isArabic ? 'إشعارات فورية' : 'Instant notifications';
-    document.getElementById('f4').innerText = isArabic ? 'حماية وأمان للبيانات' : 'Secure data protection';
+    const root = document.documentElement;
+    root.dir = isArabic ? 'rtl' : 'ltr';
+    
+    document.getElementById('langBtn').innerText = isArabic ? 'English' : 'العربية';
+    
+    // الأtexts
+    const content = {
+      title: isArabic ? 'تطبيق المزاد' : 'Auction App',
+      subtitle: isArabic 
+        ? 'تجربة مزادات رقمية فريدة، تمزج بين الأصالة العراقية والتكنولوجيا الحديثة.' 
+        : 'A premium digital auction experience, blending Iraqi heritage with modern technology.',
+      heroHeading: isArabic ? 'ابدأ المزايدة الآن' : 'Start Bidding Now',
+      featuresTitle: isArabic ? 'لماذا تختار تطبيق المزاد؟' : 'Why Choose Auction App?',
+      f1t: isArabic ? 'شفافية مطلقة' : 'Full Transparency',
+      f2t: isArabic ? 'هوية إسلامية' : 'Islamic Identity',
+      f3t: isArabic ? 'سرعة فائقة' : 'Ultra Fast',
+      f4t: isArabic ? 'أمان عالي' : 'High Security'
+    };
+
+    document.getElementById('title').innerText = content.title;
+    document.getElementById('subtitle').innerText = content.subtitle;
+    document.getElementById('heroHeading').innerText = content.heroHeading;
+    document.getElementById('featuresTitle').innerText = content.featuresTitle;
+    document.getElementById('f1-t').innerText = content.f1t;
+    document.getElementById('f2-t').innerText = content.f2t;
+    document.getElementById('f3-t').innerText = content.f3t;
+    document.getElementById('f4-t').innerText = content.f4t;
   }
 
-  // Device detection
-  const ua = navigator.userAgent.toLowerCase();
-  if (ua.includes('android')) {
-    document.getElementById('iosBtn').style.display = 'none';
-  } else if (ua.includes('iphone') || ua.includes('ipad')) {
-    document.getElementById('androidBtn').style.display = 'none';
-  }
-
-  const privacyText = `سياسة الخصوصية\n\nنحن نحترم خصوصيتك. لا نقوم بجمع أو تخزين بيانات الدفع الحساسة. يتم استخدام البيانات فقط لتحسين تجربة المستخدم وضمان عمل المزادات بشكل عادل وآمن.`;
+  const privacyText = `سياسة الخصوصية\n\nنحن نحترم خصوصيتك. يتم تشفير كافة البيانات ولا يتم مشاركتها مع أطراف ثالثة.`;
 </script>
 
 </body>
