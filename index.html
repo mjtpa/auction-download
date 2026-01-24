@@ -1,374 +1,244 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Auction App | تطبيق المزاد</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تطبيق المزاد | القمة</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;500;800&family=Reem+Kufi:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #050505;
+            --accent: #e4b04a; /* ذهبي ملكي */
+            --card-bg: #111111;
+            --text-p: #999;
+        }
 
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
-  <style>
-    :root {
-      --primary-gold: #d4af37;
-      --deep-green: #0a2e2a;
-      --accent-green: #1a4d47;
-      --glass: rgba(255, 255, 255, 0.05);
-      --glass-border: rgba(255, 255, 255, 0.1);
-      --text-main: #ffffff;
-      --text-dim: #b0b0b0;
-    }
+        body {
+            background-color: var(--bg);
+            color: white;
+            font-family: 'Cairo', sans-serif;
+            overflow-x: hidden;
+        }
 
-    * { box-sizing: border-box; transition: all 0.3s ease; }
+        /* تأثير الإضاءة الخلفية */
+        .glow {
+            position: absolute;
+            top: -10%; left: 50%;
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(228, 176, 74, 0.08) 0%, rgba(5, 5, 5, 0) 70%);
+            transform: translateX(-50%);
+            z-index: -1;
+        }
 
-    body {
-      margin: 0;
-      font-family: 'Cairo', sans-serif;
-      background: radial-gradient(circle at top right, #14332f, #050a0a);
-      color: var(--text-main);
-      overflow-x: hidden;
-      line-height: 1.6;
-    }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 40px 8%;
+        }
 
-    /* زخرفة إسلامية خفيفة في الخلفية */
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background-image: url('https://www.transparenttextures.com/patterns/arabesque.png');
-      opacity: 0.03;
-      pointer-events: none;
-      z-index: -1;
-    }
+        .logo {
+            font-family: 'Reem Kufi', sans-serif;
+            font-size: 24px;
+            letter-spacing: 2px;
+            color: var(--accent);
+        }
 
-    .nav-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 5%;
-    }
+        .lang-btn {
+            background: transparent;
+            border: 1px solid #333;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 100px;
+            cursor: pointer;
+            font-size: 14px;
+        }
 
-    .lang-switch button {
-      background: var(--glass);
-      border: 1px solid var(--glass-border);
-      color: #fff;
-      padding: 8px 16px;
-      border-radius: 12px;
-      cursor: pointer;
-      font-family: 'Cairo';
-      backdrop-filter: blur(10px);
-    }
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 100px 5% 50px;
+        }
 
-    .lang-switch button:hover {
-      background: var(--primary-gold);
-      color: #000;
-    }
+        .hero h1 {
+            font-size: clamp(40px, 8vw, 90px);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 30px;
+            background: linear-gradient(to bottom, #fff 40%, #555);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-    header {
-      padding: 60px 20px;
-      text-align: center;
-    }
+        .hero p {
+            font-size: clamp(16px, 2vw, 20px);
+            color: var(--text-p);
+            max-width: 600px;
+            margin-bottom: 40px;
+        }
 
-    header h1 {
-      font-size: clamp(2.5rem, 5vw, 4rem);
-      font-weight: 800;
-      margin-bottom: 20px;
-      background: linear-gradient(to bottom, #fff, var(--primary-gold));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
+        .download-group {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 80px;
+        }
 
-    header p {
-      font-size: 1.1rem;
-      color: var(--text-dim);
-      max-width: 700px;
-      margin: auto;
-    }
+        .btn-main {
+            background: white;
+            color: black;
+            padding: 18px 40px;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: transform 0.3s;
+        }
 
-    .container {
-      max-width: 1100px;
-      margin: auto;
-      padding: 20px;
-    }
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border: 1px solid #333;
+            padding: 18px 40px;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
 
-    .hero {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 50px;
-      align-items: center;
-      justify-content: center;
-      margin-top: 40px;
-    }
+        .btn-main:hover { transform: scale(1.05); }
 
-    .hero-content {
-      flex: 1;
-      min-width: 300px;
-      text-align: right;
-    }
+        .app-frame {
+            position: relative;
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+        }
 
-    .hero-image {
-      flex: 1;
-      min-width: 300px;
-      position: relative;
-    }
+        .main-img {
+            width: 100%;
+            height: auto;
+            border-radius: 30px;
+            border: 1px solid #222;
+        }
 
-    .hero-image img {
-      width: 100%;
-      max-width: 400px;
-      display: block;
-      margin: auto;
-      border-radius: 40px;
-      box-shadow: 0 30px 60px rgba(0,0,0,0.6);
-      border: 4px solid var(--glass-border);
-    }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 100px 8%;
+        }
 
-    /* توهج خلف الصورة */
-    .hero-image::after {
-      content: "";
-      position: absolute;
-      top: 50%; left: 50%;
-      width: 80%; height: 80%;
-      background: var(--primary-gold);
-      filter: blur(120px);
-      opacity: 0.15;
-      z-index: -1;
-      transform: translate(-50%, -50%);
-    }
+        .f-card {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 40px;
+            border: 1px solid #1a1a1a;
+            transition: 0.4s;
+        }
 
-    .buttons {
-      display: flex;
-      gap: 15px;
-      margin-top: 30px;
-    }
+        .f-card:hover { border-color: var(--accent); }
 
-    .btn {
-      flex: 1;
-      padding: 16px;
-      border-radius: 16px;
-      font-weight: 700;
-      text-decoration: none;
-      text-align: center;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-    }
+        .f-card .icon-box {
+            width: 60px;
+            height: 60px;
+            background: #1a1a1a;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin-bottom: 25px;
+        }
 
-    .btn-android {
-      background: var(--primary-gold);
-      color: #000;
-      box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2);
-    }
+        .f-card h3 { margin-bottom: 15px; font-size: 22px; }
+        .f-card p { color: var(--text-p); line-height: 1.7; }
 
-    .btn-ios {
-      background: var(--glass);
-      color: #fff;
-      border: 1px solid var(--glass-border);
-      backdrop-filter: blur(10px);
-    }
+        footer {
+            padding: 60px 8%;
+            border-top: 1px solid #111;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #444;
+        }
 
-    .btn:hover {
-      transform: translateY(-5px);
-      filter: brightness(1.1);
-    }
-
-    .section {
-      margin-top: 100px;
-    }
-
-    .section h2 {
-      text-align: center;
-      font-size: 2rem;
-      margin-bottom: 50px;
-      position: relative;
-    }
-
-    .section h2::after {
-      content: "";
-      position: absolute;
-      bottom: -10px; left: 50%;
-      width: 50px; height: 3px;
-      background: var(--primary-gold);
-      transform: translateX(-50%);
-    }
-
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 25px;
-    }
-
-    .feature {
-      background: var(--glass);
-      padding: 35px 25px;
-      border-radius: 24px;
-      border: 1px solid var(--glass-border);
-      text-align: center;
-      backdrop-filter: blur(10px);
-    }
-
-    .feature:hover {
-      border-color: var(--primary-gold);
-      background: rgba(212, 175, 55, 0.05);
-    }
-
-    .feature .icon {
-      font-size: 40px;
-      margin-bottom: 20px;
-      display: block;
-      filter: drop-shadow(0 0 10px var(--primary-gold));
-    }
-
-    .feature h3 {
-      font-size: 1.2rem;
-      margin-bottom: 10px;
-    }
-
-    .feature p {
-      color: var(--text-dim);
-      font-size: 0.95rem;
-    }
-
-    footer {
-      margin-top: 100px;
-      padding: 40px 20px;
-      text-align: center;
-      background: rgba(0,0,0,0.3);
-    }
-
-    .footer-links a {
-      color: var(--text-dim);
-      margin: 0 15px;
-      text-decoration: none;
-      font-size: 0.9rem;
-    }
-
-    .footer-links a:hover { color: var(--primary-gold); }
-
-    .copyright {
-      margin-top: 20px;
-      font-size: 0.8rem;
-      color: #666;
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      .hero-content { text-align: center; order: 2; }
-      .hero-image { order: 1; }
-      .buttons { flex-direction: column; }
-      .lang-switch { margin: auto; }
-    }
-  </style>
+        @media (max-width: 768px) {
+            .download-group { flex-direction: column; width: 100%; }
+            .btn-main, .btn-outline { justify-content: center; }
+        }
+    </style>
 </head>
 <body>
 
-<nav class="nav-bar">
-  <div class="logo" style="font-weight: 800; color: var(--primary-gold);">MJTPA</div>
-  <div class="lang-switch">
-    <button onclick="toggleLang()" id="langBtn">English</button>
-  </div>
+<div class="glow"></div>
+
+<nav>
+    <div class="logo">AL-MAZAD</div>
+    <button class="lang-btn" onclick="toggleLang()">EN / AR</button>
 </nav>
 
-<header>
-  <h1 id="title">تطبيق المزاد</h1>
-  <p id="subtitle">تجربة مزادات رقمية فريدة، تمزج بين الأصالة العراقية والتكنولوجيا الحديثة للمزايدة بكل ثقة وأمان.</p>
-</header>
-
-<div class="container">
-
-  <div class="hero">
-    <div class="hero-content">
-      <h2 id="heroHeading" style="font-size: 1.8rem; margin-bottom: 15px;">ابدأ المزايدة الآن</h2>
-      <p id="heroDesc">انضم إلى آلاف المستخدمين في أول منصة مزادات عراقية تدعم الشفافية الكاملة وتتوافق مع القيم الإسلامية.</p>
-      
-      <div class="buttons">
-        <a id="androidBtn" class="btn btn-android" href="#">
-           <span>🤖</span> Google Play
+<section class="hero">
+    <h1 id="title">فخامة المزادات <br> في هاتفك</h1>
+    <p id="desc">المنصة الأولى في العراق التي تجمع بين عراقة الهوية وسرعة التكنولوجيا. مزادات حية، آمنة، وراقية.</p>
+    
+    <div class="download-group">
+        <a href="#" class="btn-main">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.523 15.3414c-.5511 0-.9992.448-.9992.9991v1.6111c0 .3516-.2861.6377-.6377.6377h-7.7725c-.3516 0-.6377-.2861-.6377-.6377v-1.6111c0-.5511-.4481-.9991-.9992-.9991s-.9992.448-.9992.9991v1.6111c0 1.4542 1.1827 2.6369 2.6361 2.6369h7.7725c1.4534 0 2.6361-1.1827 2.6361-2.6369v-1.6111c0-.5511-.4481-.9991-.9992-.9991z"/><path d="M11.2929 13.7071c.3905.3905 1.0237.3905 1.4142 0l3-3c.3905-.3905.3905-1.0237 0-1.4142s-1.0237-.3905-1.4142 0l-1.2929 1.2929v-6.5858c0-.5523-.4477-1-1-1s-1 .4477-1 1v6.5858l-1.2929-1.2929c-.3905-.3905-1.0237-.3905-1.4142 0s-.3905 1.0237 0 1.4142l3 3z"/></svg>
+            تحميل للأندرويد
         </a>
-        <a id="iosBtn" class="btn btn-ios" href="#">
-           <span>🍎</span> App Store
-        </a>
-      </div>
+        <a href="#" class="btn-outline" id="ios">قريباً على iOS</a>
     </div>
 
-    <div class="hero-image">
-      <img src="https://via.placeholder.com/400x800/0a2e2a/d4af37?text=App+Preview" alt="Auction App Preview">
+    <div class="app-frame">
+        <img src="screenshot1.png" alt="Preview" class="main-img" onerror="this.src='https://via.placeholder.com/1200x600/111/e4b04a?text=Premium+Interface+Preview'">
     </div>
-  </div>
+</section>
 
-  <div class="section">
-    <h2 id="featuresTitle">لماذا تختار تطبيق المزاد؟</h2>
-    <div class="features">
-      <div class="feature">
-        <span class="icon">⚖️</span>
-        <h3 id="f1-t">شفافية مطلقة</h3>
-        <p id="f1-p">نظام مزايدة عادل يضمن حقوق البائع والمشتري في كل خطوة.</p>
-      </div>
-      <div class="feature">
-        <span class="icon">🕌</span>
-        <h3 id="f2-t">هوية إسلامية</h3>
-        <p id="f2-p">واجهات مستوحاة من العمارة الإسلامية بروح عصرية عراقية.</p>
-      </div>
-      <div class="feature">
-        <span class="icon">⚡</span>
-        <h3 id="f3-t">سرعة فائقة</h3>
-        <p id="f3-p">تحديثات لحظية لأسعار المزاد لضمان عدم ضياع أي فرصة.</p>
-      </div>
-      <div class="feature">
-        <span class="icon">🔒</span>
-        <h3 id="f4-t">أمان عالي</h3>
-        <p id="f4-p">تشفير كامل للبيانات وعمليات توثيق صارمة للمستخدمين.</p>
-      </div>
+<section class="features-grid">
+    <div class="f-card">
+        <div class="icon-box">⚖️</div>
+        <h3 id="f1-h">عدالة مطلقة</h3>
+        <p id="f1-p">خوارزميات ذكية تضمن عدم وجود تلاعب في اللحظات الأخيرة من المزاد.</p>
     </div>
-  </div>
-
-</div>
+    <div class="f-card" style="border-color: #333;">
+        <div class="icon-box">🏛️</div>
+        <h3 id="f2-h">هوية عراقية</h3>
+        <p id="f2-p">واجهة مستخدم تعكس روح بغداد العريقة مع بساطة التصميم الحديث.</p>
+    </div>
+    <div class="f-card">
+        <div class="icon-box">💎</div>
+        <h3 id="f3-h">مزادات حصرية</h3>
+        <p id="f3-p">قطع فنية، عقارات، وسيارات نوادر تتوفر فقط لنخبة مستخدمينا.</p>
+    </div>
+</section>
 
 <footer>
-  <div class="footer-links">
-    <a href="#" onclick="alert(privacyText)">سياسة الخصوصية</a>
-    <a href="#">الشروط والأحكام</a>
-    <a href="#">اتصل بنا</a>
-  </div>
-  <div class="copyright">
-    © 2026 Mjtpa Ahmed | جميع الحقوق محفوظة
-  </div>
+    <div>© 2026 AL-MAZAD APP</div>
+    <div style="display:flex; gap: 20px;">
+        <span>Instagram</span>
+        <span>Twitter</span>
+    </div>
 </footer>
 
 <script>
-  let isArabic = true;
-
-  function toggleLang() {
-    isArabic = !isArabic;
-    const root = document.documentElement;
-    root.dir = isArabic ? 'rtl' : 'ltr';
-    
-    document.getElementById('langBtn').innerText = isArabic ? 'English' : 'العربية';
-    
-    // الأtexts
-    const content = {
-      title: isArabic ? 'تطبيق المزاد' : 'Auction App',
-      subtitle: isArabic 
-        ? 'تجربة مزادات رقمية فريدة، تمزج بين الأصالة العراقية والتكنولوجيا الحديثة.' 
-        : 'A premium digital auction experience, blending Iraqi heritage with modern technology.',
-      heroHeading: isArabic ? 'ابدأ المزايدة الآن' : 'Start Bidding Now',
-      featuresTitle: isArabic ? 'لماذا تختار تطبيق المزاد؟' : 'Why Choose Auction App?',
-      f1t: isArabic ? 'شفافية مطلقة' : 'Full Transparency',
-      f2t: isArabic ? 'هوية إسلامية' : 'Islamic Identity',
-      f3t: isArabic ? 'سرعة فائقة' : 'Ultra Fast',
-      f4t: isArabic ? 'أمان عالي' : 'High Security'
-    };
-
-    document.getElementById('title').innerText = content.title;
-    document.getElementById('subtitle').innerText = content.subtitle;
-    document.getElementById('heroHeading').innerText = content.heroHeading;
-    document.getElementById('featuresTitle').innerText = content.featuresTitle;
-    document.getElementById('f1-t').innerText = content.f1t;
-    document.getElementById('f2-t').innerText = content.f2t;
-    document.getElementById('f3-t').innerText = content.f3t;
-    document.getElementById('f4-t').innerText = content.f4t;
-  }
-
-  const privacyText = `سياسة الخصوصية\n\nنحن نحترم خصوصيتك. يتم تشفير كافة البيانات ولا يتم مشاركتها مع أطراف ثالثة.`;
+    let isAr = true;
+    function toggleLang() {
+        isAr = !isAr;
+        document.documentElement.dir = isAr ? 'rtl' : 'ltr';
+        document.getElementById('title').innerHTML = isAr ? 'فخامة المزادات <br> في هاتفك' : 'Luxury Auctions <br> On Your Phone';
+        document.getElementById('desc').innerText = isAr ? 
+            'المنصة الأولى في العراق التي تجمع بين عراقة الهوية وسرعة التكنولوجيا.' : 
+            'Iraq\'s first platform combining heritage identity with high-speed technology.';
+        // يمكنك إضافة باقي النصوص هنا بنفس الطريقة
+    }
 </script>
 
 </body>
