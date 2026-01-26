@@ -3,20 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تطبيق المزاد | AL-MAZAD</title>
 
-    <meta name="description" content="AL-MAZAD منصة مزادات عراقية فاخرة. مزادات حية وآمنة للمقتنيات والسيارات والقطع النادرة.">
-    <meta name="keywords" content="مزاد, مزادات العراق, AL-MAZAD, تطبيق مزاد">
+    <title>AL-MAZAD | المزاد العراقي – منصة المزاد الأولى</title>
+
+    <!-- SEO -->
+    <meta name="description" content="AL-MAZAD هو المزاد العراقي الأول. منصة المزاد الأكثر أمانًا للمزادات الحية للسيارات، المقتنيات، والقطع النادرة داخل العراق.">
+    <meta name="keywords" content="المزاد, المزاد العراقي, مزاد العراق, منصة مزاد, تطبيق مزاد, مزادات عراقية, AL-MAZAD">
     <meta name="author" content="AL-MAZAD">
+    <meta name="robots" content="index, follow">
 
+    <!-- Open Graph -->
+    <meta property="og:title" content="AL-MAZAD | المزاد العراقي">
+    <meta property="og:description" content="المزاد العراقي الأول – منصة المزاد الآمنة للمقتنيات والسيارات والقطع النادرة.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="mockup.png">
+    <meta property="og:locale" content="ar_IQ">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;500;800&family=Reem+Kufi:wght@700&display=swap" rel="stylesheet">
+
+    <!-- Animations -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <style>
         :root {
             --bg: #050505;
             --accent: #e4b04a;
-            --accent-glow: rgba(228, 176, 74, 0.3);
             --card-bg: #111;
             --text-p: #999;
         }
@@ -27,7 +41,6 @@
             background: var(--bg);
             color: #fff;
             font-family: 'Cairo', sans-serif;
-            overflow-x: hidden;
         }
 
         nav {
@@ -37,7 +50,7 @@
             padding: 30px 8%;
             position: sticky;
             top: 0;
-            background: rgba(5,5,5,0.85);
+            background: rgba(5,5,5,0.9);
             backdrop-filter: blur(10px);
             z-index: 1000;
         }
@@ -48,28 +61,19 @@
             color: var(--accent);
         }
 
-        .lang-btn {
-            padding: 10px 22px;
-            border-radius: 100px;
-            background: transparent;
-            color: white;
-            border: 1px solid #333;
-            cursor: pointer;
-        }
-
         .hero {
             text-align: center;
             padding: 100px 5% 60px;
         }
 
         .hero h1 {
-            font-size: clamp(40px, 7vw, 90px);
+            font-size: clamp(36px, 7vw, 85px);
             font-weight: 800;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
 
         .hero p {
-            max-width: 700px;
+            max-width: 750px;
             margin: auto;
             color: var(--text-p);
             font-size: 20px;
@@ -140,52 +144,55 @@
         }
     </style>
 </head>
+
 <body>
 
 <nav>
     <div class="logo">AL-MAZAD</div>
-    <button class="lang-btn">EN / AR</button>
 </nav>
 
 <section class="hero">
-    <h1>فخامة المزادات<br>في هاتفك</h1>
-    <p>منصة عراقية راقية للمزادات الحية، تجمع بين الثقة والتكنولوجيا.</p>
+    <h1>AL-MAZAD<br>المزاد العراقي</h1>
+    <p>
+        AL-MAZAD هو <strong>المزاد العراقي</strong> الأول، منصة المزاد الحديثة للمزادات الحية،
+        حيث يلتقي البائع والمشتري في بيئة آمنة وشفافة داخل العراق.
+    </p>
 
     <div class="download-group">
         <a class="btn-main" target="_blank"
            href="https://www.mediafire.com/file/ef6p53py1liqo9i/app-release.apk/file">
-            تحميل للأندرويد (APK)
+            تحميل تطبيق المزاد للأندرويد
         </a>
         <a class="btn-outline">قريبًا على App Store</a>
     </div>
 
     <div class="app-frame" data-aos="zoom-in">
-        <img src="mockup.png" class="main-img" alt="AL-MAZAD Mockup">
+        <img src="mockup.png" class="main-img" alt="تطبيق المزاد العراقي AL-MAZAD">
     </div>
 </section>
 
 <section class="features-grid">
     <div class="f-card" data-aos="fade-up">
-        <img src="screenshot1.png" alt="">
-        <h3>عدالة وشفافية</h3>
-        <p>نظام مزايدة ذكي يمنع التلاعب ويضمن العدالة.</p>
+        <img src="screenshot1.png" alt="المزاد العراقي">
+        <h3>المزاد العادل</h3>
+        <p>نظام المزاد مصمم ليضمن العدالة والشفافية الكاملة بين جميع المشاركين.</p>
     </div>
 
     <div class="f-card" data-aos="fade-up" data-aos-delay="100">
-        <img src="screenshot1.png" alt="">
-        <h3>هوية عراقية</h3>
-        <p>واجهة مستوحاة من التراث العراقي بروح حديثة.</p>
+        <img src="screenshot1.png" alt="منصة مزاد عراقية">
+        <h3>منصة عراقية</h3>
+        <p>واجهة وهوية مستوحاة من البيئة العراقية لتجربة مزاد قريبة من المستخدم.</p>
     </div>
 
     <div class="f-card" data-aos="fade-up" data-aos-delay="200">
-        <img src="screenshot1.png" alt="">
-        <h3>مزادات نخبوية</h3>
-        <p>وصول حصري لأثمن القطع والمقتنيات.</p>
+        <img src="screenshot1.png" alt="تطبيق المزاد">
+        <h3>مزادات حصرية</h3>
+        <p>الوصول إلى مزادات نادرة وخاصة داخل السوق العراقي.</p>
     </div>
 </section>
 
 <footer>
-    © 2026 AL-MAZAD — جميع الحقوق محفوظة
+    © 2026 AL-MAZAD — المزاد العراقي | جميع الحقوق محفوظة
 </footer>
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
