@@ -52,7 +52,8 @@
         .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
         .p-card { background: var(--card-bg); border-radius: 25px; padding: 25px; border: 1px solid #222; position: relative; transition: 0.3s; }
         .p-card:hover { border-color: var(--accent); transform: translateY(-8px); }
-        .p-card img { width: 100%; height: 200px; object-fit: contain; margin-bottom: 20px; border-radius: 15px; }
+        .p-card .img-container { width: 100%; height: 180px; margin-bottom: 15px; display: flex; align-items: center; justify-content: center; overflow: hidden; border-radius: 15px; background: #1a1a1a; }
+        .p-card img { max-width: 90%; max-height: 90%; object-fit: contain; }
         .p-card h3 { font-size: 19px; margin-bottom: 15px; font-weight: 700; }
         .p-card .price-tag { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-top: 1px solid #222; padding-top: 15px; }
         .current-bid { color: var(--accent); font-weight: 900; font-size: 18px; }
@@ -80,14 +81,14 @@
     <div class="logo">AL-MAZAD</div>
     <div class="live-counter">
         <span class="dot"></span>
-        <span id="active-users">48</span> متصل الآن
+        <span id="active-users">54</span> متصل الآن
     </div>
 </nav>
 
 <section class="hero">
     <div data-aos="fade-down" style="color: var(--accent); font-weight: bold; margin-bottom: 15px;">المنصة الأكبر للمزادات في العراق 🇮🇶</div>
     <h1 data-aos="fade-up">لا تفوت الفرصة<br>زايد واربح الآن</h1>
-    <p data-aos="fade-up" data-aos-delay="100">أقوى المزادات اليومية على الإلكترونيات الحديثة. حمل التطبيق وكن المزايد الرابح القادم.</p>
+    <p data-aos="fade-up" data-aos-delay="100">أقوى المزادات اليومية على الإلكترونيات الحديثة بأسعار خيالية. حمل التطبيق وابدأ المزايدة فوراً.</p>
     
     <div data-aos="zoom-in" data-aos-delay="200">
         <a id="download-btn" class="btn-smart" href="https://www.mediafire.com/file/wp2hmxxpk13noi2/app-release.apk/file">
@@ -99,14 +100,16 @@
 
 <section class="products-section" id="auctions">
     <div class="section-title" data-aos="fade-up">
-        <h2>مزادات نشطة حالياً</h2>
-        <p>الأسعار الموضحة هي آخر مزايدات مسجلة في النظام</p>
+        <h2>أجهزة متاحة للمزايدة الآن</h2>
+        <p>الأسعار الموضحة هي آخر العروض المقدمة</p>
     </div>
 
     <div class="products-grid">
         <div class="p-card" data-aos="fade-up">
             <div class="timer-box">01:45:10</div>
-            <img src="https://i.ibb.co/p37p1vC/iphone15pro.jpg" alt="iPhone 15">
+            <div class="img-container">
+                <img src="https://images.unsplash.com/photo-1696446701796-da61225697cc?auto=format&fit=crop&q=80&w=400" alt="iPhone 15">
+            </div>
             <h3>iPhone 15 Pro Max</h3>
             <div class="price-tag">
                 <span>أعلى مزايدة:</span>
@@ -117,7 +120,9 @@
 
         <div class="p-card" data-aos="fade-up" data-aos-delay="100">
             <div class="timer-box" style="border-color:#ff4d4d; color:#ff4d4d;">00:15:20</div>
-            <img src="https://i.ibb.co/Yy4m0vY/ps5slim.jpg" alt="PS5">
+            <div class="img-container">
+                <img src="https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?auto=format&fit=crop&q=80&w=400" alt="PS5">
+            </div>
             <h3>PlayStation 5 Slim</h3>
             <div class="price-tag">
                 <span>أعلى مزايدة:</span>
@@ -128,7 +133,9 @@
 
         <div class="p-card" data-aos="fade-up" data-aos-delay="200">
             <div class="timer-box">04:30:00</div>
-            <img src="https://i.ibb.co/v4S8L8v/macbookm3.jpg" alt="MacBook">
+            <div class="img-container">
+                <img src="https://images.unsplash.com/photo-1517336714460-4c5049c11e2f?auto=format&fit=crop&q=80&w=400" alt="MacBook">
+            </div>
             <h3>MacBook Air M3</h3>
             <div class="price-tag">
                 <span>أعلى مزايدة:</span>
@@ -139,7 +146,9 @@
 
         <div class="p-card" data-aos="fade-up">
             <div class="timer-box">00:55:12</div>
-            <img src="https://i.ibb.co/m0fXmXj/applewatchultra.jpg" alt="Apple Watch">
+            <div class="img-container">
+                <img src="https://images.unsplash.com/photo-1544117518-2b47603578b2?auto=format&fit=crop&q=80&w=400" alt="Apple Watch">
+            </div>
             <h3>Apple Watch Ultra 2</h3>
             <div class="price-tag">
                 <span>أعلى مزايدة:</span>
@@ -150,7 +159,9 @@
 
         <div class="p-card" data-aos="fade-up" data-aos-delay="100">
             <div class="timer-box">07:12:45</div>
-            <img src="https://i.ibb.co/Qf98k9v/ipadpro.jpg" alt="iPad Pro">
+            <div class="img-container">
+                <img src="https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&q=80&w=400" alt="iPad">
+            </div>
             <h3>iPad Pro M4 (11 inch)</h3>
             <div class="price-tag">
                 <span>أعلى مزايدة:</span>
@@ -161,7 +172,9 @@
 
         <div class="p-card" data-aos="fade-up" data-aos-delay="200">
             <div class="timer-box" style="border-color:#ff4d4d; color:#ff4d4d;">00:08:30</div>
-            <img src="https://i.ibb.co/0fXmRzS/airpodspro2.jpg" alt="AirPods">
+            <div class="img-container">
+                <img src="https://images.unsplash.com/photo-1588423770574-91993ca0ad5d?auto=format&fit=crop&q=80&w=400" alt="AirPods">
+            </div>
             <h3>AirPods Pro 2nd Gen</h3>
             <div class="price-tag">
                 <span>أعلى مزايدة:</span>
@@ -175,15 +188,15 @@
 <section class="features">
     <div class="f-card" data-aos="fade-up">
         <h3>🛡️ مزايدة موثوقة</h3>
-        <p>نظامنا يضمن حقك في الاستلام أو استرجاع مبلغ التأمين فوراً.</p>
+        <p>نظامنا يضمن حقك في الاستلام أو استرجاع مبلغ التأمين فوراً في حال عدم المطابقة.</p>
     </div>
     <div class="f-card" data-aos="fade-up" data-aos-delay="100">
-        <h3>🚚 شحن لجميع المحافظات</h3>
-        <p>توصيل آمن وسريع لباب بيتك بعد إتمام عملية الشراء بنجاح.</p>
+        <h3>🚚 شحن آمن</h3>
+        <p>توصيل لباب بيتك لجميع محافظات العراق مع تغليف احترافي للمنتجات.</p>
     </div>
     <div class="f-card" data-aos="fade-up" data-aos-delay="200">
-        <h3>💰 طرق دفع سهلة</h3>
-        <p>ندعم زين كاش، آسيا حوالة، والبطاقات الائتمانية المحلية.</p>
+        <h3>💰 دفع متعدد</h3>
+        <p>ندعم زين كاش، آسيا حوالة، والبطاقات البنكية لتسهيل عملية الشراء.</p>
     </div>
 </section>
 
