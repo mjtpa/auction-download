@@ -3,111 +3,129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google-site-verification" content="jneQu0hJw-4kDV_Ya3zpMQuFWbYfa6rwUxnBqKq4WPg" />
-    <title>AL-MAZAD | المزاد العراقي</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Reem+Kufi:wght@700&display=swap" rel="stylesheet">
+    <title>AL-MAZAD | المزاد العراقي - 26 مزاداً نشطاً</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
-        :root { --bg: #050505; --accent: #e4b04a; --accent-glow: rgba(228, 176, 74, 0.2); --card-bg: #111111; --text-p: #b0b0b0; --white: #ffffff; }
+        :root { --bg: #050505; --accent: #e4b04a; --card-bg: #111111; --white: #ffffff; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { background: var(--bg); color: var(--white); font-family: 'Cairo', sans-serif; overflow-x: hidden; }
+        
+        /* Navigation */
         nav { display: flex; justify-content: space-between; align-items: center; padding: 15px 8%; position: fixed; width: 100%; top: 0; background: rgba(5,5,5,0.9); backdrop-filter: blur(15px); z-index: 2000; border-bottom: 1px solid rgba(255,255,255,0.05); }
-        .logo { font-family: 'Reem Kufi', sans-serif; font-size: 24px; color: var(--accent); font-weight: 700; }
+        .logo { font-size: 24px; color: var(--accent); font-weight: 900; }
+
+        /* Hero */
         .hero { text-align: center; padding: 160px 8% 60px; display: flex; flex-direction: column; align-items: center; }
-        .screenshot-container { max-width: 280px; margin-bottom: 35px; border-radius: 30px; padding: 10px; background: #111; border: 2px solid #222; box-shadow: 0 20px 50px rgba(0,0,0,0.8); }
+        .screenshot-container { max-width: 280px; margin-bottom: 35px; border-radius: 30px; padding: 10px; background: #111; border: 2px solid #222; box-shadow: 0 0 20px var(--accent); }
         .screenshot-container img { width: 100%; border-radius: 22px; display: block; }
-        .btn-smart { background: var(--white); color: #000; padding: 18px 50px; border-radius: 100px; text-decoration: none; font-weight: 800; font-size: 20px; display: inline-flex; align-items: center; gap: 12px; transition: 0.3s; }
-        .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; padding: 60px 8%; }
-        .p-card { background: var(--card-bg); border-radius: 25px; padding: 25px; border: 1px solid #222; position: relative; text-align: center; }
-        .p-card .img-container { width: 100%; height: 200px; margin-bottom: 15px; display: flex; align-items: center; justify-content: center; background: #1a1a1a; border-radius: 15px; overflow: hidden; }
-        .p-card img { max-width: 85%; max-height: 85%; object-fit: contain; }
-        .current-bid { color: var(--accent); font-weight: 900; font-size: 18px; }
-        .timer-box { position: absolute; top: 15px; left: 15px; background: rgba(0,0,0,0.8); padding: 5px 12px; border-radius: 10px; font-size: 12px; border: 1px solid var(--accent); color: var(--accent); }
-        .btn-bid { display: block; border: 1px solid var(--accent); color: var(--accent); padding: 12px; border-radius: 15px; text-decoration: none; font-weight: 700; margin-top: 15px; }
-        footer { padding: 40px; text-align: center; border-top: 1px solid #111; }
+        .btn-smart { background: var(--white); color: #000; padding: 18px 50px; border-radius: 100px; text-decoration: none; font-weight: 800; font-size: 20px; transition: 0.3s; }
+
+        /* Products Grid */
+        .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; padding: 40px 8%; }
+        .p-card { background: var(--card-bg); border-radius: 20px; padding: 20px; border: 1px solid #222; position: relative; transition: 0.3s; }
+        .p-card:hover { border-color: var(--accent); transform: translateY(-5px); }
+        .img-container { width: 100%; height: 180px; background: #1a1a1a; border-radius: 12px; margin-bottom: 15px; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+        .img-container img { width: 100%; height: 100%; object-fit: cover; }
+        .current-bid { color: var(--accent); font-weight: 900; }
+        .timer-box { position: absolute; top: 10px; left: 10px; background: rgba(0,0,0,0.8); padding: 4px 10px; border-radius: 8px; font-size: 11px; color: var(--accent); border: 1px solid var(--accent); }
+        .btn-bid { display: block; text-align: center; border: 1px solid var(--accent); color: var(--accent); padding: 10px; border-radius: 12px; text-decoration: none; margin-top: 15px; font-weight: 700; transition: 0.3s; }
+        .btn-bid:hover { background: var(--accent); color: #000; }
+
+        footer { padding: 40px; text-align: center; border-top: 1px solid #111; opacity: 0.6; }
     </style>
 </head>
 <body>
 
 <nav>
     <div class="logo">AL-MAZAD</div>
-    <div style="color: #ff4d4d; font-size: 13px; font-weight: 700;">● متصل الآن: <span id="active-users">54</span></div>
+    <div style="color: #ff4d4d;">● مزادات مباشرة: <span id="active-users">48</span></div>
 </nav>
 
 <section class="hero">
-    <h1 data-aos="fade-up">مزادات حية<br>على أحدث الأجهزة</h1>
+    <h1>أكبر منصة مزادات في العراق</h1>
     <div class="screenshot-container" data-aos="zoom-in">
-        <img src="screenshot1.png" alt="App Preview">
+        <img src="screenshot1.png" alt="App Screen">
     </div>
-    <a id="download-btn" class="btn-smart" href="https://www.mediafire.com/file/wp2hmxxpk13noi2/app-release.apk/file">
-        <span>🤖</span> <span>تحميل للأندرويد</span>
-    </a>
+    <a href="https://www.mediafire.com/file/wp2hmxxpk13noi2/app-release.apk/file" class="btn-smart">تحميل التطبيق للمزايدة</a>
 </section>
 
-<div class="products-grid">
+<div class="products-grid" id="container">
     <div class="p-card" data-aos="fade-up">
         <div class="timer-box">01:45:10</div>
-        <div class="img-container">
-            <img src="https://images.unsplash.com/photo-1696446701796-da61225697cc?w=400" alt="iPhone">
-        </div>
+        <div class="img-container"><img src="https://images.unsplash.com/photo-1696446701796-da61225697cc?w=400" alt="iPhone"></div>
         <h3>iPhone 15 Pro Max</h3>
-        <p>مزايدة: <span class="current-bid">1,180,000 د.ع</span></p>
+        <p>آخر مزايدة: <span class="current-bid">1,180,000 د.ع</span></p>
         <a href="#" class="btn-bid" onclick="alertDownload()">زايد الآن</a>
     </div>
 
     <div class="p-card" data-aos="fade-up">
         <div class="timer-box">00:15:20</div>
-        <div class="img-container">
-            <img src="https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=400" alt="PS5">
-        </div>
+        <div class="img-container"><img src="https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=400" alt="PS5"></div>
         <h3>PlayStation 5 Slim</h3>
-        <p>مزايدة: <span class="current-bid">455,000 د.ع</span></p>
+        <p>آخر مزايدة: <span class="current-bid">455,000 د.ع</span></p>
         <a href="#" class="btn-bid" onclick="alertDownload()">زايد الآن</a>
     </div>
 
     <div class="p-card" data-aos="fade-up">
         <div class="timer-box">04:30:00</div>
-        <div class="img-container">
-            <img src="https://images.unsplash.com/photo-1517336714460-4c5049c11e2f?w=400" alt="MacBook">
-        </div>
+        <div class="img-container"><img src="https://images.unsplash.com/photo-1517336714460-4c5049c11e2f?w=400" alt="MacBook"></div>
         <h3>MacBook Air M3</h3>
-        <p>مزايدة: <span class="current-bid">1,250,000 د.ع</span></p>
+        <p>آخر مزايدة: <span class="current-bid">1,250,000 د.ع</span></p>
         <a href="#" class="btn-bid" onclick="alertDownload()">زايد الآن</a>
     </div>
 
-    <div class="p-card" data-aos="fade-up">
-        <div class="timer-box">00:55:12</div>
-        <div class="img-container">
-            <img src="https://images.unsplash.com/photo-1434494878577-86c23bcb06b9?w=400" alt="Apple Watch">
-        </div>
-        <h3>Apple Watch Ultra 2</h3>
-        <p>مزايدة: <span class="current-bid">640,000 د.ع</span></p>
-        <a href="#" class="btn-bid" onclick="alertDownload()">زايد الآن</a>
     </div>
-
-    <div class="p-card" data-aos="fade-up">
-        <div class="timer-box">00:08:30</div>
-        <div class="img-container">
-            <img src="https://images.unsplash.com/photo-1588423770574-91993ca0ad5d?w=400" alt="AirPods">
-        </div>
-        <h3>AirPods Pro 2nd Gen</h3>
-        <p>مزايدة: <span class="current-bid">205,000 د.ع</span></p>
-        <a href="#" class="btn-bid" onclick="alertDownload()">زايد الآن</a>
-    </div>
-</div>
 
 <footer>
-    <p>© 2026 AL-MAZAD — المزاد العراقي</p>
-    <img src="https://hitwebcounter.com/counter/counter.php?page=9452026&style=0006&nbdigits=5&type=page&initCount=1500" border="0">
+    <p>© 2026 AL-MAZAD - المزاد العراقي</p>
 </footer>
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
     AOS.init();
-    function alertDownload() { alert("يجب تحميل التطبيق للمشاركة في المزاد."); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+
+    // قائمة بأسماء المنتجات لتظهر بشكل واقعي
+    const productNames = [
+        "Samsung S24 Ultra", "iPad Pro M4", "Apple Watch Ultra", "AirPods Pro 2", 
+        "Gaming PC RTX 4090", "Sony Camera A7IV", "Nintendo Switch OLED", "Dyson V15 Vacuum",
+        "LG OLED TV 65", "DJI Mini 4 Pro", "GoPro Hero 12", "Beats Studio Pro",
+        "Razer Blade 15", "Canon EOS R6", "Microsoft Surface Pro", "Samsung Tab S9",
+        "JBL PartyBox", "Kindle Paperwhite", "PS5 VR2", "Apple TV 4K"
+    ];
+
+    const container = document.getElementById('container');
+
+    // توليد 20 منتج إضافي
+    for (let i = 0; i < 20; i++) {
+        const price = Math.floor(Math.random() * (1500000 - 100000) + 100000).toLocaleString();
+        const hour = Math.floor(Math.random() * 12);
+        const min = Math.floor(Math.random() * 59);
+        
+        // استخدام معرف عشوائي من Picsum أو Unsplash لضمان صور مختلفة
+        const imgUrl = `https://picsum.photos/seed/${i + 50}/400/300`;
+
+        const card = `
+            <div class="p-card" data-aos="fade-up">
+                <div class="timer-box">${hour}:${min}:45</div>
+                <div class="img-container">
+                    <img src="${imgUrl}" alt="Product">
+                </div>
+                <h3>${productNames[i]}</h3>
+                <p>آخر مزايدة: <span class="current-bid">${price} د.ع</span></p>
+                <a href="#" class="btn-bid" onclick="alertDownload()">زايد الآن</a>
+            </div>
+        `;
+        container.innerHTML += card;
+    }
+
+    function alertDownload() {
+        alert("يرجى تحميل تطبيق المزاد للمشاركة في المزايدات الحية.");
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
     setInterval(() => {
-        let el = document.getElementById('active-users');
-        el.innerText = Math.floor(Math.random() * 10) + 45;
+        document.getElementById('active-users').innerText = Math.floor(Math.random() * 20) + 40;
     }, 3000);
 </script>
 </body>
