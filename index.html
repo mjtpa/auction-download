@@ -17,12 +17,10 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { background: var(--bg); color: var(--white); font-family: 'Cairo', sans-serif; overflow-x: hidden; line-height: 1.6; }
 
-        /* Header */
         nav { display: flex; justify-content: space-between; align-items: center; padding: 15px 8%; position: fixed; width: 100%; top: 0; background: rgba(5,5,5,0.9); backdrop-filter: blur(15px); z-index: 2000; border-bottom: 1px solid rgba(255,255,255,0.05); }
         .logo { font-family: 'Reem Kufi', sans-serif; font-size: 24px; color: var(--accent); font-weight: 700; }
         .live-counter { color: #ff4d4d; font-size: 13px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
 
-        /* Hero */
         .hero { text-align: center; padding: 160px 8% 60px; display: flex; flex-direction: column; align-items: center; }
         .hero h1 { font-size: clamp(35px, 8vw, 70px); font-weight: 900; line-height: 1.1; margin-bottom: 20px; background: linear-gradient(to bottom, #fff 50%, var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .hero p { max-width: 700px; margin: 0 auto 30px; color: var(--text-p); font-size: 18px; }
@@ -33,7 +31,6 @@
         .btn-smart { background: var(--white); color: #000; padding: 18px 50px; border-radius: 100px; text-decoration: none; font-weight: 800; font-size: 20px; transition: 0.3s; box-shadow: 0 10px 30px rgba(255,255,255,0.1); }
         .btn-smart:hover { transform: scale(1.05); background: var(--accent); }
 
-        /* Products Grid */
         .products-section { padding: 60px 8%; text-align: center; }
         .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-top: 40px; }
         .p-card { background: var(--card-bg); border-radius: 20px; padding: 20px; border: 1px solid #222; position: relative; transition: 0.3s; text-align: center; }
@@ -45,16 +42,17 @@
         .current-bid { color: var(--accent); font-weight: 900; font-size: 18px; }
         .timer-box { position: absolute; top: 12px; left: 12px; background: rgba(0,0,0,0.8); padding: 5px 10px; border-radius: 8px; font-size: 11px; color: var(--accent); border: 1px solid var(--accent); }
         .btn-bid { display: block; border: 1px solid var(--accent); color: var(--accent); padding: 10px; border-radius: 12px; text-decoration: none; margin-top: 15px; font-weight: 700; transition: 0.3s; }
-        .btn-bid:hover { background: var(--accent); color: #000; }
 
         footer { padding: 60px 8%; text-align: center; border-top: 1px solid #111; color: #555; }
+        .visitor-stats { margin-top: 25px; background: rgba(255,255,255,0.03); padding: 15px; display: inline-block; border-radius: 12px; border: 1px solid #222; }
+        .visitor-stats img { filter: invert(1) brightness(0.8); vertical-align: middle; margin-right: 10px; }
     </style>
 </head>
 <body>
 
 <nav>
     <div class="logo">AL-MAZAD</div>
-    <div class="live-counter">● متصل الآن: <span id="active-users">42</span></div>
+    <div class="live-counter">● متصل الآن: <span id="active-users">56</span></div>
 </nav>
 
 <section class="hero">
@@ -63,7 +61,7 @@
     <p data-aos="fade-up" data-aos-delay="100">انضم لأكبر تجمع للمزايدين في العراق. حمل التطبيق الآن ونافس على أفضل الإلكترونيات بأسعار لا تصدق.</p>
     
     <div class="screenshot-container" data-aos="zoom-in" data-aos-delay="200">
-        <img src="screenshot1.png" alt="واجهة تطبيق المزاد">
+        <img src="screenshot1.png" alt="واجهة التطبيق">
     </div>
 
     <div data-aos="fade-up" data-aos-delay="300">
@@ -79,12 +77,18 @@
 
 <footer>
     <p>© 2026 AL-MAZAD — المزاد العراقي | جميع الحقوق محفوظة</p>
+    
+    <div class="visitor-stats">
+        <span>إجمالي زيارات المنصة: </span>
+        <img src="https://hitwebcounter.com/counter/counter.php?page=9452026&style=0006&nbdigits=5&type=page&initCount=1500" title="Free Counter" Alt="web counter" border="0" />
+    </div>
 </footer>
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
     AOS.init({ duration: 1000, once: true });
 
+    // مصفوفة المنتجات الـ 20 بصور حقيقية
     const products = [
         { name: "iPhone 15 Pro Max", price: "1,210,000", img: "https://images.unsplash.com/photo-1696446701796-da61225697cc?w=400" },
         { name: "PlayStation 5 Slim", price: "450,000", img: "https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=400" },
@@ -96,30 +100,28 @@
         { name: "Sony WH-1000XM5", price: "320,000", img: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400" },
         { name: "Canon EOS R6", price: "2,400,000", img: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=400" },
         { name: "Nintendo Switch", price: "380,000", img: "https://images.unsplash.com/photo-1578303512597-81e6cc155b3e?w=400" },
-        { name: "Dyson V15", price: "720,000", img: "https://images.unsplash.com/photo-1558317374-067fb5f30001?w=400" },
+        { name: "Dyson V15 Vacuum", price: "720,000", img: "https://images.unsplash.com/photo-1558317374-067fb5f30001?w=400" },
         { name: "Gaming PC RTX 4080", price: "2,850,000", img: "https://images.unsplash.com/photo-1587831990711-23ca6441447b?w=400" },
         { name: "Apple TV 4K", price: "185,000", img: "https://images.unsplash.com/photo-1585341295441-267926715f33?w=400" },
         { name: "Samsung Galaxy Tab", price: "540,000", img: "https://images.unsplash.com/photo-1589739900243-4b123b33e6bd?w=400" },
         { name: "DJI Mini 3 Pro", price: "950,000", img: "https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=400" },
         { name: "GoPro Hero 11", price: "410,000", img: "https://images.unsplash.com/photo-1524143878510-e3b8d6312402?w=400" },
-        { name: "Logitech G Pro Mouse", price: "120,000", img: "https://images.unsplash.com/photo-1527814050087-3793815479db?w=400" },
+        { name: "Logitech G Pro", price: "120,000", img: "https://images.unsplash.com/photo-1527814050087-3793815479db?w=400" },
         { name: "Razer Keyboard", price: "155,000", img: "https://images.unsplash.com/photo-1511467687858-23d96c32e4ae?w=400" },
         { name: "Monitor 4K Curved", price: "480,000", img: "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400" },
         { name: "Smart Projector", price: "290,000", img: "https://images.unsplash.com/photo-1535016120720-40c646bebbbb?w=400" }
     ];
 
     const grid = document.getElementById('main-grid');
-    products.forEach((p, index) => {
+    products.forEach((p) => {
         grid.innerHTML += `
             <div class="p-card" data-aos="fade-up">
-                <div class="timer-box">0${Math.floor(Math.random()*5)}:22:15</div>
+                <div class="timer-box">0${Math.floor(Math.random()*5)}:${Math.floor(Math.random()*59)}:10</div>
                 <div class="img-container">
                     <img src="${p.img}" alt="${p.name}">
                 </div>
                 <h3>${p.name}</h3>
-                <div class="price-tag">
-                    <span class="current-bid">${p.price} د.ع</span>
-                </div>
+                <div class="price-tag"><span class="current-bid">${p.price} د.ع</span></div>
                 <a href="#" class="btn-bid" onclick="alertDownload()">زايد الآن</a>
             </div>
         `;
@@ -131,7 +133,7 @@
     }
 
     setInterval(() => {
-        document.getElementById('active-users').innerText = Math.floor(Math.random() * 20) + 40;
+        document.getElementById('active-users').innerText = Math.floor(Math.random() * 20) + 50;
     }, 4000);
 </script>
 
