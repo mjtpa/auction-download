@@ -9,8 +9,7 @@
     <title>AL-MAZAD | المزاد العراقي – المنصة الأولى للمزادات</title>
 
     <meta name="description" content="AL-MAZAD: منصة المزاد العراقي الأولى للإلكترونيات والسيارات. بيع واشتري الآن بأمان وشفافية مطلقة داخل العراق.">
-    <meta name="keywords" content="المزاد, المزاد العراقي, مزاد العراق, سيارات للبيع في العراق, مزاد سيارات, تطبيق مزاد, منصة مزاد, حراج العراق, بيع وشراء, مقتنيات نادرة, مزاد علني مباشر, سوق العراق, عقارات العراق, ايفون مزاد, AL-MAZAD, Iraq Auction, Mazad Iraq, Iraqi Marketplace">
-
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Reem+Kufi:wght@700&display=swap" rel="stylesheet">
 
@@ -39,9 +38,28 @@
         @keyframes pulse { 0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 77, 77, 0.7); } 70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(255, 77, 77, 0); } 100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 77, 77, 0); } }
 
         /* Hero */
-        .hero { text-align: center; padding: 160px 8% 60px; }
+        .hero { text-align: center; padding: 160px 8% 60px; display: flex; flex-direction: column; align-items: center; }
         .hero h1 { font-size: clamp(35px, 8vw, 75px); font-weight: 900; line-height: 1.1; margin-bottom: 20px; background: linear-gradient(to bottom, #fff 50%, var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .hero p { max-width: 700px; margin: 0 auto 40px; color: var(--text-p); font-size: clamp(17px, 2vw, 21px); }
+        .hero p { max-width: 700px; margin: 0 auto 30px; color: var(--text-p); font-size: clamp(17px, 2vw, 20px); }
+
+        /* App Screenshot Style */
+        .screenshot-container {
+            max-width: 280px;
+            margin-bottom: 35px;
+            border-radius: 30px;
+            padding: 10px;
+            background: #111;
+            border: 2px solid #222;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.8), 0 0 20px var(--accent-glow);
+            transition: 0.4s;
+        }
+        .screenshot-container:hover { transform: scale(1.02) rotate(-1deg); border-color: var(--accent); }
+        .screenshot-container img {
+            width: 100%;
+            border-radius: 22px;
+            display: block;
+        }
+
         .btn-smart { background: var(--white); color: #000; padding: 18px 50px; border-radius: 100px; text-decoration: none; font-weight: 800; font-size: 20px; display: inline-flex; align-items: center; gap: 12px; transition: 0.3s; box-shadow: 0 10px 30px rgba(255,255,255,0.1); }
         .btn-smart:hover { transform: scale(1.05); background: var(--accent); }
 
@@ -90,7 +108,11 @@
     <h1 data-aos="fade-up">لا تفوت الفرصة<br>زايد واربح الآن</h1>
     <p data-aos="fade-up" data-aos-delay="100">أقوى المزادات اليومية على الإلكترونيات الحديثة بأسعار خيالية. حمل التطبيق وابدأ المزايدة فوراً.</p>
     
-    <div data-aos="zoom-in" data-aos-delay="200">
+    <div class="screenshot-container" data-aos="zoom-in" data-aos-delay="200">
+        <img src="screenshot1.png" alt="واجهة تطبيق المزاد">
+    </div>
+
+    <div data-aos="fade-up" data-aos-delay="300">
         <a id="download-btn" class="btn-smart" href="https://www.mediafire.com/file/wp2hmxxpk13noi2/app-release.apk/file">
             <span id="os-icon">🤖</span>
             <span id="os-text">تحميل تطبيق الأندرويد</span>
@@ -101,7 +123,7 @@
 <section class="products-section" id="auctions">
     <div class="section-title" data-aos="fade-up">
         <h2>أجهزة متاحة للمزايدة الآن</h2>
-        <p>الأسعار الموضحة هي آخر العروض المقدمة</p>
+        <p>الأسعار الموضحة هي آخر العروض المقدمة في النظام</p>
     </div>
 
     <div class="products-grid">
@@ -160,7 +182,7 @@
         <div class="p-card" data-aos="fade-up" data-aos-delay="100">
             <div class="timer-box">07:12:45</div>
             <div class="img-container">
-                <img src="https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&q=80&w=400" alt="iPad">
+                <img src="https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&q=80&w=400" alt="iPad Pro">
             </div>
             <h3>iPad Pro M4 (11 inch)</h3>
             <div class="price-tag">
@@ -182,21 +204,6 @@
             </div>
             <a href="#" class="btn-bid" onclick="alertDownload()">زايد الآن</a>
         </div>
-    </div>
-</section>
-
-<section class="features">
-    <div class="f-card" data-aos="fade-up">
-        <h3>🛡️ مزايدة موثوقة</h3>
-        <p>نظامنا يضمن حقك في الاستلام أو استرجاع مبلغ التأمين فوراً في حال عدم المطابقة.</p>
-    </div>
-    <div class="f-card" data-aos="fade-up" data-aos-delay="100">
-        <h3>🚚 شحن آمن</h3>
-        <p>توصيل لباب بيتك لجميع محافظات العراق مع تغليف احترافي للمنتجات.</p>
-    </div>
-    <div class="f-card" data-aos="fade-up" data-aos-delay="200">
-        <h3>💰 دفع متعدد</h3>
-        <p>ندعم زين كاش، آسيا حوالة، والبطاقات البنكية لتسهيل عملية الشراء.</p>
     </div>
 </section>
 
