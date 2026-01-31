@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <meta name="google-site-verification" content="jneQu0hJw-4kDV_Ya3zpMQuFWbYfa6rwUxnBqKq4WPg" />
 
-    <title>AL-MAZAD | المزاد العراقي – منصة المزاد الأولى للسيارات والمقتنيات</title>
+    <title>AL-MAZAD | المزاد العراقي – أول منصة مزادات إلكترونية وسيارات</title>
 
-    <meta name="description" content="AL-MAZAD: The #1 Iraqi Auction platform for cars, electronics, and rare items. المزاد العراقي الأول للسيارات، العقارات، والمقتنيات النادرة. بيع واشتري الآن بكل أمان.">
-    <meta name="keywords" content="المزاد, المزاد العراقي, مزاد العراق, سيارات للبيع في العراق, مزاد سيارات, تطبيق مزاد, منصة مزاد, حراج العراق, بيع وشراء, مقتنيات نادرة, مزاد علني مباشر, سوق العراق, عقارات العراق, مزاد بغداد, مزاد أربيل, AL-MAZAD, Iraq Auction, Iraqi Auction, Mazad Iraq, Iraq Cars Auction, Buy and Sell Iraq, Online Auction Platform Iraq, Iraq Marketplace, Mazad App, Baghdad Auction, Erbil Auction, Basra Auction, Live Bidding Iraq, Rare items auction">
+    <meta name="description" content="AL-MAZAD: The #1 Iraqi Auction platform for electronics, cars, and rare items. المزاد العراقي الأول للإلكترونيات، السيارات، والمقتنيات. بيع واشتري الآن بكل أمان.">
+    <meta name="keywords" content="المزاد, المزاد العراقي, مزاد العراق, سيارات للبيع في العراق, مزاد سيارات, تطبيق مزاد, منصة مزاد, حراج العراق, بيع وشراء, مقتنيات نادرة, مزاد علني مباشر, سوق العراق, عقارات العراق, مزاد بغداد, مزاد أربيل, ايفون مزاد, لابتوب مزاد, بلايستيشن مزاد, AL-MAZAD, Iraq Auction, Iraqi Auction, Mazad Iraq, Iraq Cars Auction, Buy and Sell Iraq, Online Auction Platform Iraq, Iraq Marketplace, Mazad App, Baghdad Auction, Erbil Auction, Basra Auction">
+    <meta name="author" content="AL-MAZAD">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;900&family=Reem+Kufi:wght@700&display=swap" rel="stylesheet">
@@ -19,175 +21,55 @@
         :root {
             --bg: #050505;
             --accent: #e4b04a;
-            --accent-glow: rgba(228, 176, 74, 0.25);
-            --card-bg: rgba(255, 255, 255, 0.03);
+            --accent-glow: rgba(228, 176, 74, 0.2);
+            --card-bg: #111111;
             --text-p: #b0b0b0;
             --white: #ffffff;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: var(--bg); color: var(--white); font-family: 'Cairo', sans-serif; overflow-x: hidden; line-height: 1.6; }
 
-        body {
-            background: var(--bg);
-            color: var(--white);
-            font-family: 'Cairo', sans-serif;
-            overflow-x: hidden;
-            line-height: 1.6;
-        }
+        .bg-glow { position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 100%; height: 900px; background: radial-gradient(circle at center, var(--accent-glow) 0%, transparent 70%); z-index: -1; pointer-events: none; }
 
-        .bg-glow {
-            position: absolute;
-            top: 0; left: 50%;
-            transform: translateX(-50%);
-            width: 100%;
-            height: 800px;
-            background: radial-gradient(circle at center, var(--accent-glow) 0%, transparent 70%);
-            z-index: -1;
-            pointer-events: none;
-        }
+        /* Navigation */
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 15px 8%; position: fixed; width: 100%; top: 0; background: rgba(5,5,5,0.9); backdrop-filter: blur(15px); z-index: 2000; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .logo { font-family: 'Reem Kufi', sans-serif; font-size: 24px; color: var(--accent); font-weight: 700; }
+        .live-counter { background: rgba(255, 0, 0, 0.1); color: #ff4d4d; padding: 5px 15px; border-radius: 20px; font-size: 13px; font-weight: 700; border: 1px solid rgba(255, 0, 0, 0.2); display: flex; align-items: center; gap: 8px; }
+        .dot { height: 8px; width: 8px; background: #ff4d4d; border-radius: 50%; animation: pulse 1.5s infinite; }
+        @keyframes pulse { 0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 77, 77, 0.7); } 70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(255, 77, 77, 0); } 100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 77, 77, 0); } }
 
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 8%;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            background: rgba(5, 5, 5, 0.85);
-            backdrop-filter: blur(15px);
-            z-index: 2000;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-        }
+        /* Hero Section */
+        .hero { text-align: center; padding: 160px 8% 60px; }
+        .hero h1 { font-size: clamp(35px, 8vw, 75px); font-weight: 900; line-height: 1.1; margin-bottom: 20px; background: linear-gradient(to bottom, #fff 50%, var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p { max-width: 700px; margin: 0 auto 40px; color: var(--text-p); font-size: clamp(17px, 2vw, 21px); }
+        .btn-smart { background: var(--white); color: #000; padding: 18px 50px; border-radius: 100px; text-decoration: none; font-weight: 800; font-size: 20px; display: inline-flex; align-items: center; gap: 12px; transition: 0.3s; box-shadow: 0 10px 30px rgba(255,255,255,0.1); }
+        .btn-smart:hover { transform: scale(1.05); background: var(--accent); }
 
-        .logo {
-            font-family: 'Reem Kufi', sans-serif;
-            font-size: 24px;
-            color: var(--accent);
-            font-weight: 700;
-        }
+        /* Products Grid */
+        .products-section { padding: 60px 8%; text-align: center; }
+        .section-title { margin-bottom: 40px; }
+        .section-title h2 { font-size: 32px; color: var(--accent); }
+        .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .p-card { background: var(--card-bg); border-radius: 25px; padding: 20px; border: 1px solid #222; position: relative; transition: 0.3s; }
+        .p-card:hover { border-color: var(--accent); transform: translateY(-5px); }
+        .p-card img { width: 100%; height: 180px; object-fit: contain; margin-bottom: 15px; }
+        .p-card h3 { font-size: 18px; margin-bottom: 10px; }
+        .p-card .price-tag { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+        .current-bid { color: var(--accent); font-weight: 900; font-size: 18px; }
+        .timer-box { position: absolute; top: 15px; left: 15px; background: rgba(0,0,0,0.7); padding: 4px 10px; border-radius: 8px; font-size: 12px; border: 1px solid var(--accent); color: var(--accent); }
+        .btn-bid { display: block; border: 1px solid var(--accent); color: var(--accent); padding: 10px; border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 14px; transition: 0.3s; }
+        .btn-bid:hover { background: var(--accent); color: #000; }
 
-        /* Live Visitors Counter Badge */
-        .live-counter {
-            background: rgba(255, 0, 0, 0.1);
-            color: #ff4d4d;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 13px;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            border: 1px solid rgba(255, 0, 0, 0.2);
-        }
+        /* Features */
+        .features { padding: 60px 8%; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .f-card { background: rgba(255,255,255,0.02); padding: 40px; border-radius: 30px; border: 1px solid #1a1a1a; text-align: center; }
+        
+        footer { padding: 50px 8%; text-align: center; border-top: 1px solid #111; color: #555; }
+        .visitor-stats { margin-top: 20px; font-size: 12px; }
+        .visitor-stats img { filter: grayscale(1) invert(1); opacity: 0.5; vertical-align: middle; }
 
-        .dot {
-            height: 8px;
-            width: 8px;
-            background-color: #ff4d4d;
-            border-radius: 50%;
-            display: inline-block;
-            animation: pulse 1.5s infinite;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 77, 77, 0.7); }
-            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(255, 77, 77, 0); }
-            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 77, 77, 0); }
-        }
-
-        .hero {
-            text-align: center;
-            padding: 160px 5% 60px;
-        }
-
-        .hero h1 {
-            font-size: clamp(35px, 8vw, 75px);
-            font-weight: 900;
-            line-height: 1.2;
-            margin-bottom: 20px;
-            background: linear-gradient(to bottom, #fff 50%, #888);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero p {
-            max-width: 750px;
-            margin: 0 auto 40px;
-            color: var(--text-p);
-            font-size: clamp(17px, 2vw, 21px);
-        }
-
-        .btn-smart {
-            background: var(--white);
-            color: #000;
-            padding: 20px 55px;
-            border-radius: 100px;
-            text-decoration: none;
-            font-weight: 800;
-            font-size: 19px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            transition: 0.3s;
-            box-shadow: 0 10px 40px rgba(255,255,255,0.1);
-        }
-
-        .btn-smart:hover {
-            transform: scale(1.03) translateY(-3px);
-            background: var(--accent);
-        }
-
-        .app-frame {
-            max-width: 950px;
-            margin: 70px auto 0;
-            padding: 0 20px;
-        }
-
-        .main-img {
-            width: 100%;
-            border-radius: 40px;
-            border: 1px solid rgba(255,255,255,0.08);
-            box-shadow: 0 40px 100px rgba(0,0,0,0.8);
-        }
-
-        .features {
-            padding: 80px 8%;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .f-card {
-            background: var(--card-bg);
-            padding: 40px;
-            border-radius: 40px;
-            border: 1px solid rgba(255,255,255,0.05);
-            text-align: center;
-        }
-
-        /* Real Visitor Counter Footer Style */
-        .visitor-stats {
-            margin-top: 30px;
-            padding: 15px;
-            background: rgba(255,255,255,0.02);
-            display: inline-block;
-            border-radius: 15px;
-            font-size: 12px;
-            color: #444;
-        }
-
-        footer {
-            border-top: 1px solid #111;
-            padding: 50px 8%;
-            text-align: center;
-            color: #555;
-        }
-
-        @media (max-width: 768px) {
-            nav { padding: 10px 5%; }
-            .hero h1 { font-size: 40px; }
-        }
+        @media (max-width: 768px) { nav { padding: 10px 5%; } .hero { padding-top: 120px; } }
     </style>
 </head>
 
@@ -199,50 +81,118 @@
     <div class="logo">AL-MAZAD</div>
     <div class="live-counter">
         <span class="dot"></span>
-        <span id="active-users">24</span> متصل الآن
+        <span id="active-users">31</span> متصل الآن
     </div>
 </nav>
 
 <section class="hero">
-    <div data-aos="fade-down" style="color: var(--accent); font-weight: bold; margin-bottom: 15px;">إحصائيات المزاد اليوم</div>
-    <h1 data-aos="fade-up">المزاد العراقي الأول</h1>
-    <p data-aos="fade-up" data-aos-delay="100">
-        انضم لأكبر تجمع للمزايدين في العراق. سيارات، مقتنيات، وأرقام مميزة.
-    </p>
-
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 15px;" data-aos="zoom-in" data-aos-delay="200">
+    <div data-aos="fade-down" style="color: var(--accent); font-weight: bold; margin-bottom: 10px;">المزاد العراقي الأول للجميع</div>
+    <h1 data-aos="fade-up">اشتري إلكترونياتك<br>بسعر المزاد</h1>
+    <p data-aos="fade-up" data-aos-delay="100">تطبيق المزاد العراقي يتيح لك المزايدة الحية على أحدث الهواتف، اللابتوبات، والسيارات بأسعار تبدأ من 1000 دينار فقط.</p>
+    
+    <div data-aos="zoom-in" data-aos-delay="200">
         <a id="download-btn" class="btn-smart" href="https://www.mediafire.com/file/wp2hmxxpk13noi2/app-release.apk/file">
             <span id="os-icon">🤖</span>
             <span id="os-text">تحميل تطبيق الأندرويد</span>
         </a>
     </div>
+</section>
 
-    <div class="app-frame" data-aos="fade-up" data-aos-delay="300">
-        <img src="mockup.png" class="main-img" alt="تطبيق المزاد العراقي">
+<section class="products-section" id="auctions">
+    <div class="section-title" data-aos="fade-up">
+        <h2>مزادات الإلكترونيات الحالية</h2>
+        <p>قم بتحميل التطبيق لتتمكن من المزايدة على هذه الأجهزة</p>
+    </div>
+
+    <div class="products-grid">
+        <div class="p-card" data-aos="fade-up">
+            <div class="timer-box">02:14:55</div>
+            <img src="https://m.media-amazon.com/images/I/619m6v9PUpL._AC_SL1500_.jpg" alt="iPhone 15">
+            <h3>iPhone 15 Pro Max</h3>
+            <div class="price-tag">
+                <span>أعلى مزايدة:</span>
+                <span class="current-bid">1,210,000 د.ع</span>
+            </div>
+            <a href="#" class="btn-bid" onclick="alertDownload()">زايد الآن</a>
+        </div>
+
+        <div class="p-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="timer-box" style="border-color:#ff4d4d; color:#ff4d4d;">00:12:05</div>
+            <img src="https://m.media-amazon.com/images/I/61uA2SIdSML._AC_SL1500_.jpg" alt="PS5">
+            <h3>PlayStation 5 Slim</h3>
+            <div class="price-tag">
+                <span>أعلى مزايدة:</span>
+                <span class="current-bid">450,000 د.ع</span>
+            </div>
+            <a href="#" class="btn-bid" onclick="alertDownload()">زايد الآن</a>
+        </div>
+
+        <div class="p-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="timer-box">05:40:12</div>
+            <img src="https://m.media-amazon.com/images/I/71f5Eu5lJSL._AC_SL1500_.jpg" alt="MacBook">
+            <h3>MacBook Air M3</h3>
+            <div class="price-tag">
+                <span>أعلى مزايدة:</span>
+                <span class="current-bid">1,320,000 د.ع</span>
+            </div>
+            <a href="#" class="btn-bid" onclick="alertDownload()">زايد الآن</a>
+        </div>
+
+        <div class="p-card" data-aos="fade-up">
+            <div class="timer-box">01:05:30</div>
+            <img src="https://m.media-amazon.com/images/I/71Lfnk5S9ZL._AC_SL1500_.jpg" alt="Apple Watch">
+            <h3>Apple Watch Ultra 2</h3>
+            <div class="price-tag">
+                <span>أعلى مزايدة:</span>
+                <span class="current-bid">680,000 د.ع</span>
+            </div>
+            <a href="#" class="btn-bid" onclick="alertDownload()">زايد الآن</a>
+        </div>
+
+        <div class="p-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="timer-box">08:22:00</div>
+            <img src="https://m.media-amazon.com/images/I/41-D9XGidNL._AC_.jpg" alt="iPad Pro">
+            <h3>iPad Pro M4</h3>
+            <div class="price-tag">
+                <span>أعلى مزايدة:</span>
+                <span class="current-bid">980,000 د.ع</span>
+            </div>
+            <a href="#" class="btn-bid" onclick="alertDownload()">زايد الآن</a>
+        </div>
+
+        <div class="p-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="timer-box" style="border-color:#ff4d4d; color:#ff4d4d;">00:04:15</div>
+            <img src="https://m.media-amazon.com/images/I/61O09mS2z3L._AC_SL1500_.jpg" alt="AirPods">
+            <h3>AirPods Pro 2</h3>
+            <div class="price-tag">
+                <span>أعلى مزايدة:</span>
+                <span class="current-bid">195,000 د.ع</span>
+            </div>
+            <a href="#" class="btn-bid" onclick="alertDownload()">زايد الآن</a>
+        </div>
     </div>
 </section>
 
 <section class="features">
     <div class="f-card" data-aos="fade-up">
-        <h3>⚖️ شفافية</h3>
-        <p>كل مزايدة مسجلة ومضمونة لضمان حقك.</p>
+        <h3>🛡️ مزايدة آمنة</h3>
+        <p>نظامنا يضمن تشفير كافة بياناتك ومزايداتك لضمان تجربة آمنة 100%.</p>
     </div>
     <div class="f-card" data-aos="fade-up" data-aos-delay="100">
-        <h3>⚡ سرعة</h3>
-        <p>نظام تنبيهات فوري عند المزايدة عليك.</p>
+        <h3>🚚 توصيل سريع</h3>
+        <p>بعد الفوز بالمزاد، يتم شحن المنتج لباب بيتك في أي مكان بالعراق.</p>
     </div>
     <div class="f-card" data-aos="fade-up" data-aos-delay="200">
-        <h3>🔒 أمان</h3>
-        <p>حماية كاملة لبياناتك وعمليات الدفع.</p>
+        <h3>💬 دعم فني</h3>
+        <p>فريقنا متواجد على مدار الساعة للإجابة على استفساراتك ومساعدتك.</p>
     </div>
 </section>
 
 <footer>
-    <p>© 2026 AL-MAZAD — المزاد العراقي</p>
-    
+    <p>© 2026 AL-MAZAD — المزاد العراقي الأول</p>
     <div class="visitor-stats">
-        <span>إجمالي زيارات المنصة: </span>
-        <img src="https://hitwebcounter.com/counter/counter.php?page=9452026&style=0006&nbdigits=5&type=page&initCount=1500" title="Free Counter" Alt="web counter" border="0" style="vertical-align: middle; filter: grayscale(1) invert(1); opacity: 0.6;">
+        <span>زيارات المنصة: </span>
+        <img src="https://hitwebcounter.com/counter/counter.php?page=9452026&style=0006&nbdigits=5&type=page&initCount=1500" border="0">
     </div>
 </footer>
 
@@ -250,25 +200,30 @@
 <script>
     AOS.init({ duration: 1000, once: true });
 
-    // سكريبت لتغيير عدد المتصلين الآن بشكل عشوائي ليعطي طابع الحياة للموقع
-    function updateLiveUsers() {
-        const baseUsers = 18;
-        const randomExtra = Math.floor(Math.random() * 15);
-        document.getElementById('active-users').innerText = baseUsers + randomExtra;
+    // تنبيه التحميل
+    function alertDownload() {
+        alert("عذراً! يجب عليك تحميل التطبيق وتسجيل الدخول لتتمكن من تقديم المزايدات.");
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     }
-    setInterval(updateLiveUsers, 5000);
-    updateLiveUsers();
+
+    // عداد المستخدمين الوهمي
+    function liveUsers() {
+        let count = Math.floor(Math.random() * 20) + 25;
+        document.getElementById('active-users').innerText = count;
+    }
+    setInterval(liveUsers, 4000);
 
     // اكتشاف الجهاز
-    function detectOS() {
-        const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    function checkOS() {
+        const ua = navigator.userAgent || navigator.vendor || window.opera;
         const btnText = document.getElementById('os-text');
-        if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-            btnText.innerText = "قريباً على آيفون";
-            document.getElementById('os-icon').innerText = "🍎";
+        const btnIcon = document.getElementById('os-icon');
+        if (/iPad|iPhone|iPod/.test(ua) && !window.MSStream) {
+            btnText.innerText = "قريباً على App Store";
+            btnIcon.innerText = "🍎";
         }
     }
-    detectOS();
+    checkOS();
 </script>
 
 </body>
