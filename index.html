@@ -6,11 +6,10 @@
     
     <meta name="google-site-verification" content="jneQu0hJw-4kDV_Ya3zpMQuFWbYfa6rwUxnBqKq4WPg" />
 
-    <title>AL-MAZAD | المزاد العراقي – منصة المزادات الأولى للإلكترونيات والسيارات</title>
+    <title>AL-MAZAD | المزاد العراقي – المنصة الأولى للمزادات</title>
 
-    <meta name="description" content="AL-MAZAD: منصة المزاد العراقي الأولى للإلكترونيات، السيارات، والمقتنيات. بيع واشتري الآن بأمان وشفافية مطلقة داخل العراق.">
+    <meta name="description" content="AL-MAZAD: منصة المزاد العراقي الأولى للإلكترونيات والسيارات. بيع واشتري الآن بأمان وشفافية مطلقة داخل العراق.">
     <meta name="keywords" content="المزاد, المزاد العراقي, مزاد العراق, سيارات للبيع في العراق, مزاد سيارات, تطبيق مزاد, منصة مزاد, حراج العراق, بيع وشراء, مقتنيات نادرة, مزاد علني مباشر, سوق العراق, عقارات العراق, ايفون مزاد, AL-MAZAD, Iraq Auction, Mazad Iraq, Iraqi Marketplace">
-    <meta name="author" content="AL-MAZAD">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Reem+Kufi:wght@700&display=swap" rel="stylesheet">
@@ -52,12 +51,12 @@
         .section-title h2 { font-size: 32px; color: var(--accent); margin-bottom: 10px; }
         .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
         .p-card { background: var(--card-bg); border-radius: 25px; padding: 25px; border: 1px solid #222; position: relative; transition: 0.3s; }
-        .p-card:hover { border-color: var(--accent); transform: translateY(-8px); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-        .p-card img { width: 100%; height: 200px; object-fit: contain; margin-bottom: 20px; background: transparent; }
+        .p-card:hover { border-color: var(--accent); transform: translateY(-8px); }
+        .p-card img { width: 100%; height: 200px; object-fit: contain; margin-bottom: 20px; border-radius: 15px; }
         .p-card h3 { font-size: 19px; margin-bottom: 15px; font-weight: 700; }
         .p-card .price-tag { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-top: 1px solid #222; padding-top: 15px; }
         .current-bid { color: var(--accent); font-weight: 900; font-size: 18px; }
-        .timer-box { position: absolute; top: 15px; left: 15px; background: rgba(0,0,0,0.8); padding: 5px 12px; border-radius: 10px; font-size: 12px; border: 1px solid var(--accent); color: var(--accent); font-weight: bold; }
+        .timer-box { position: absolute; top: 15px; left: 15px; background: rgba(0,0,0,0.8); padding: 5px 12px; border-radius: 10px; font-size: 12px; border: 1px solid var(--accent); color: var(--accent); font-weight: bold; z-index: 10; }
         .btn-bid { display: block; border: 1px solid var(--accent); color: var(--accent); padding: 12px; border-radius: 15px; text-decoration: none; font-weight: 700; font-size: 15px; transition: 0.3s; }
         .btn-bid:hover { background: var(--accent); color: #000; }
 
@@ -81,14 +80,14 @@
     <div class="logo">AL-MAZAD</div>
     <div class="live-counter">
         <span class="dot"></span>
-        <span id="active-users">42</span> متصل الآن
+        <span id="active-users">48</span> متصل الآن
     </div>
 </nav>
 
 <section class="hero">
-    <div data-aos="fade-down" style="color: var(--accent); font-weight: bold; margin-bottom: 15px; letter-spacing: 1px;">أول منصة مزادات ذكية في العراق 🇮🇶</div>
-    <h1 data-aos="fade-up">مزادات حية<br>على أحدث الأجهزة</h1>
-    <p data-aos="fade-up" data-aos-delay="100">انضم لأكبر تجمع للمزايدين في العراق. حمل التطبيق الآن ونافس على أفضل الإلكترونيات والسيارات بأسعار لا تصدق.</p>
+    <div data-aos="fade-down" style="color: var(--accent); font-weight: bold; margin-bottom: 15px;">المنصة الأكبر للمزادات في العراق 🇮🇶</div>
+    <h1 data-aos="fade-up">لا تفوت الفرصة<br>زايد واربح الآن</h1>
+    <p data-aos="fade-up" data-aos-delay="100">أقوى المزادات اليومية على الإلكترونيات الحديثة. حمل التطبيق وكن المزايد الرابح القادم.</p>
     
     <div data-aos="zoom-in" data-aos-delay="200">
         <a id="download-btn" class="btn-smart" href="https://www.mediafire.com/file/wp2hmxxpk13noi2/app-release.apk/file">
@@ -100,73 +99,73 @@
 
 <section class="products-section" id="auctions">
     <div class="section-title" data-aos="fade-up">
-        <h2>أجهزة متاحة للمزايدة الآن</h2>
-        <p>قم بتحميل التطبيق لتقديم عرضك قبل انتهاء الوقت</p>
+        <h2>مزادات نشطة حالياً</h2>
+        <p>الأسعار الموضحة هي آخر مزايدات مسجلة في النظام</p>
     </div>
 
     <div class="products-grid">
         <div class="p-card" data-aos="fade-up">
-            <div class="timer-box">02:14:55</div>
-            <img src="https://www.apple.com/v/iphone/home/bu/images/overview/select/iphone_15_pro__9f7wsaxud7m6_large.jpg" alt="iPhone 15">
+            <div class="timer-box">01:45:10</div>
+            <img src="https://i.ibb.co/p37p1vC/iphone15pro.jpg" alt="iPhone 15">
             <h3>iPhone 15 Pro Max</h3>
             <div class="price-tag">
                 <span>أعلى مزايدة:</span>
-                <span class="current-bid">1,210,000 د.ع</span>
+                <span class="current-bid">1,180,000 د.ع</span>
             </div>
             <a href="#" class="btn-bid" onclick="alertDownload()">زايد الآن</a>
         </div>
 
         <div class="p-card" data-aos="fade-up" data-aos-delay="100">
-            <div class="timer-box" style="border-color:#ff4d4d; color:#ff4d4d;">00:12:05</div>
-            <img src="https://gmedia.playstation.com/is/image/SIEPDC/ps5-product-thumbnail-01-en-14sep21?$facebook$" alt="PS5">
+            <div class="timer-box" style="border-color:#ff4d4d; color:#ff4d4d;">00:15:20</div>
+            <img src="https://i.ibb.co/Yy4m0vY/ps5slim.jpg" alt="PS5">
             <h3>PlayStation 5 Slim</h3>
             <div class="price-tag">
                 <span>أعلى مزايدة:</span>
-                <span class="current-bid">450,000 د.ع</span>
+                <span class="current-bid">455,000 د.ع</span>
             </div>
             <a href="#" class="btn-bid" onclick="alertDownload()">زايد الآن</a>
         </div>
 
         <div class="p-card" data-aos="fade-up" data-aos-delay="200">
-            <div class="timer-box">05:40:12</div>
-            <img src="https://www.apple.com/v/macbook-air/q/images/overview/incentive/air_m2__v228vjss696u_large.jpg" alt="MacBook">
+            <div class="timer-box">04:30:00</div>
+            <img src="https://i.ibb.co/v4S8L8v/macbookm3.jpg" alt="MacBook">
             <h3>MacBook Air M3</h3>
             <div class="price-tag">
                 <span>أعلى مزايدة:</span>
-                <span class="current-bid">1,320,000 د.ع</span>
+                <span class="current-bid">1,250,000 د.ع</span>
             </div>
             <a href="#" class="btn-bid" onclick="alertDownload()">زايد الآن</a>
         </div>
 
         <div class="p-card" data-aos="fade-up">
-            <div class="timer-box">01:05:30</div>
-            <img src="https://www.apple.com/v/watch/be/images/overview/select/product_ultra2__cl7cl76f770y_large.jpg" alt="Apple Watch">
+            <div class="timer-box">00:55:12</div>
+            <img src="https://i.ibb.co/m0fXmXj/applewatchultra.jpg" alt="Apple Watch">
             <h3>Apple Watch Ultra 2</h3>
             <div class="price-tag">
                 <span>أعلى مزايدة:</span>
-                <span class="current-bid">680,000 د.ع</span>
+                <span class="current-bid">640,000 د.ع</span>
             </div>
             <a href="#" class="btn-bid" onclick="alertDownload()">زايد الآن</a>
         </div>
 
         <div class="p-card" data-aos="fade-up" data-aos-delay="100">
-            <div class="timer-box">08:22:00</div>
-            <img src="https://www.apple.com/v/ipad/home/cl/images/overview/select/ipad_pro_hero__946v3n7619ma_large.jpg" alt="iPad Pro">
-            <h3>iPad Pro M4</h3>
+            <div class="timer-box">07:12:45</div>
+            <img src="https://i.ibb.co/Qf98k9v/ipadpro.jpg" alt="iPad Pro">
+            <h3>iPad Pro M4 (11 inch)</h3>
             <div class="price-tag">
                 <span>أعلى مزايدة:</span>
-                <span class="current-bid">980,000 د.ع</span>
+                <span class="current-bid">995,000 د.ع</span>
             </div>
             <a href="#" class="btn-bid" onclick="alertDownload()">زايد الآن</a>
         </div>
 
         <div class="p-card" data-aos="fade-up" data-aos-delay="200">
-            <div class="timer-box" style="border-color:#ff4d4d; color:#ff4d4d;">00:04:15</div>
-            <img src="https://www.apple.com/v/airpods/shared/overview/images/overview/airpods_pro/airpods_pro_2nd_gen__986cl7508p66_large.png" alt="AirPods">
-            <h3>AirPods Pro 2</h3>
+            <div class="timer-box" style="border-color:#ff4d4d; color:#ff4d4d;">00:08:30</div>
+            <img src="https://i.ibb.co/0fXmRzS/airpodspro2.jpg" alt="AirPods">
+            <h3>AirPods Pro 2nd Gen</h3>
             <div class="price-tag">
                 <span>أعلى مزايدة:</span>
-                <span class="current-bid">195,000 د.ع</span>
+                <span class="current-bid">205,000 د.ع</span>
             </div>
             <a href="#" class="btn-bid" onclick="alertDownload()">زايد الآن</a>
         </div>
@@ -175,21 +174,21 @@
 
 <section class="features">
     <div class="f-card" data-aos="fade-up">
-        <h3>🛡️ حماية المشتري</h3>
-        <p>نضمن لك استلام المنتج بنفس المواصفات المذكورة في المزاد أو استرداد أموالك.</p>
+        <h3>🛡️ مزايدة موثوقة</h3>
+        <p>نظامنا يضمن حقك في الاستلام أو استرجاع مبلغ التأمين فوراً.</p>
     </div>
     <div class="f-card" data-aos="fade-up" data-aos-delay="100">
-        <h3>📍 فحص وتدقيق</h3>
-        <p>كافة المنتجات المعروضة تخضع لعملية فحص دقيقة قبل إدراجها في منصة المزاد.</p>
+        <h3>🚚 شحن لجميع المحافظات</h3>
+        <p>توصيل آمن وسريع لباب بيتك بعد إتمام عملية الشراء بنجاح.</p>
     </div>
     <div class="f-card" data-aos="fade-up" data-aos-delay="200">
-        <h3>💳 دفع محلي</h3>
-        <p>ندعم كافة وسائل الدفع المحلية المتوفرة في العراق لتسهيل عملية الشراء.</p>
+        <h3>💰 طرق دفع سهلة</h3>
+        <p>ندعم زين كاش، آسيا حوالة، والبطاقات الائتمانية المحلية.</p>
     </div>
 </section>
 
 <footer>
-    <p>© 2026 AL-MAZAD — المزاد العراقي | أول منصة مزادات متكاملة</p>
+    <p>© 2026 AL-MAZAD — المزاد العراقي</p>
     <div class="visitor-stats">
         <span>إجمالي زيارات المنصة: </span>
         <img src="https://hitwebcounter.com/counter/counter.php?page=9452026&style=0006&nbdigits=5&type=page&initCount=1500" border="0">
@@ -200,32 +199,24 @@
 <script>
     AOS.init({ duration: 1000, once: true });
 
-    // تنبيه التحميل
     function alertDownload() {
-        alert("يرجى تحميل التطبيق وتسجيل الدخول لتتمكن من المشاركة في المزايدة الحية.");
+        alert("يجب عليك تحميل التطبيق وتسجيل الدخول للمشاركة في المزاد.");
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // عداد المستخدمين المتصلين
     function updateLiveUsers() {
         let current = parseInt(document.getElementById('active-users').innerText);
-        let change = Math.floor(Math.random() * 7) - 3; // يغير الرقم بزيادة أو نقصان طفيف
-        document.getElementById('active-users').innerText = Math.max(25, current + change);
+        let change = Math.floor(Math.random() * 5) - 2;
+        document.getElementById('active-users').innerText = Math.max(30, current + change);
     }
     setInterval(updateLiveUsers, 4000);
 
-    // اكتشاف نظام التشغيل
     function detectDevice() {
         const ua = navigator.userAgent || navigator.vendor || window.opera;
-        const btnText = document.getElementById('os-text');
-        const btnIcon = document.getElementById('os-icon');
-        const btn = document.getElementById('download-btn');
-
         if (/iPad|iPhone|iPod/.test(ua) && !window.MSStream) {
-            btnText.innerText = "قريباً على App Store";
-            btnIcon.innerText = "🍎";
-            btn.style.opacity = "0.6";
-            btn.onclick = (e) => e.preventDefault();
+            document.getElementById('os-text').innerText = "قريباً على App Store";
+            document.getElementById('os-icon').innerText = "🍎";
+            document.getElementById('download-btn').onclick = (e) => e.preventDefault();
         }
     }
     detectDevice();
