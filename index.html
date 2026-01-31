@@ -3,46 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <meta name="google-site-verification" content="jneQu0hJw-4kDV_Ya3zpMQuFWbYfa6rwUxnBqKq4WPg" />
 
     <title>AL-MAZAD | المزاد العراقي – منصة المزاد الأولى للسيارات والمقتنيات</title>
 
     <meta name="description" content="AL-MAZAD: The #1 Iraqi Auction platform for cars, electronics, and rare items. المزاد العراقي الأول للسيارات، العقارات، والمقتنيات النادرة. بيع واشتري الآن بكل أمان.">
     <meta name="keywords" content="المزاد, المزاد العراقي, مزاد العراق, سيارات للبيع في العراق, مزاد سيارات, تطبيق مزاد, منصة مزاد, حراج العراق, بيع وشراء, مقتنيات نادرة, مزاد علني مباشر, سوق العراق, عقارات العراق, مزاد بغداد, مزاد أربيل, AL-MAZAD, Iraq Auction, Iraqi Auction, Mazad Iraq, Iraq Cars Auction, Buy and Sell Iraq, Online Auction Platform Iraq, Iraq Marketplace, Mazad App, Baghdad Auction, Erbil Auction, Basra Auction, Live Bidding Iraq, Rare items auction">
-    <meta name="author" content="AL-MAZAD">
-    <meta name="robots" content="index, follow">
-
-    <meta property="og:title" content="AL-MAZAD | المزاد العراقي">
-    <meta property="og:description" content="المنصة الأكثر أماناً للمزادات الحية في العراق. حمل التطبيق الآن.">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="mockup.png">
-    <meta property="og:locale" content="ar_IQ">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;900&family=Reem+Kufi:wght@700&display=swap" rel="stylesheet">
 
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "AL-MAZAD | المزاد العراقي",
-      "operatingSystem": "ANDROID",
-      "applicationCategory": "ShoppingApplication",
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.9",
-        "ratingCount": "1250"
-      }
-    }
-    </script>
-
     <style>
         :root {
             --bg: #050505;
-            --accent: #e4b04a; /* Golden */
+            --accent: #e4b04a;
             --accent-glow: rgba(228, 176, 74, 0.25);
             --card-bg: rgba(255, 255, 255, 0.03);
             --text-p: #b0b0b0;
@@ -59,7 +35,6 @@
             line-height: 1.6;
         }
 
-        /* Ambient Background Glow */
         .bg-glow {
             position: absolute;
             top: 0; left: 50%;
@@ -75,11 +50,11 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 8%;
+            padding: 15px 8%;
             position: fixed;
             width: 100%;
             top: 0;
-            background: rgba(5, 5, 5, 0.8);
+            background: rgba(5, 5, 5, 0.85);
             backdrop-filter: blur(15px);
             z-index: 2000;
             border-bottom: 1px solid rgba(255,255,255,0.05);
@@ -87,28 +62,43 @@
 
         .logo {
             font-family: 'Reem Kufi', sans-serif;
-            font-size: 26px;
+            font-size: 24px;
             color: var(--accent);
             font-weight: 700;
         }
 
-        /* Hero Section */
+        /* Live Visitors Counter Badge */
+        .live-counter {
+            background: rgba(255, 0, 0, 0.1);
+            color: #ff4d4d;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            border: 1px solid rgba(255, 0, 0, 0.2);
+        }
+
+        .dot {
+            height: 8px;
+            width: 8px;
+            background-color: #ff4d4d;
+            border-radius: 50%;
+            display: inline-block;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 77, 77, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(255, 77, 77, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 77, 77, 0); }
+        }
+
         .hero {
             text-align: center;
             padding: 160px 5% 60px;
-        }
-
-        .badge {
-            background: rgba(228, 176, 74, 0.1);
-            color: var(--accent);
-            padding: 8px 24px;
-            border-radius: 50px;
-            font-size: 14px;
-            font-weight: 700;
-            display: inline-block;
-            margin-bottom: 25px;
-            border: 1px solid var(--accent-glow);
-            letter-spacing: 1px;
         }
 
         .hero h1 {
@@ -128,14 +118,6 @@
             font-size: clamp(17px, 2vw, 21px);
         }
 
-        /* Smart CTA */
-        .download-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-        }
-
         .btn-smart {
             background: var(--white);
             color: #000;
@@ -147,7 +129,7 @@
             display: flex;
             align-items: center;
             gap: 12px;
-            transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: 0.3s;
             box-shadow: 0 10px 40px rgba(255,255,255,0.1);
         }
 
@@ -156,18 +138,6 @@
             background: var(--accent);
         }
 
-        .stats-badge {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 14px;
-            color: #666;
-            margin-top: 10px;
-        }
-
-        .stars { color: #ffcc00; }
-
-        /* App Mockup */
         .app-frame {
             max-width: 950px;
             margin: 70px auto 0;
@@ -181,9 +151,8 @@
             box-shadow: 0 40px 100px rgba(0,0,0,0.8);
         }
 
-        /* Features */
         .features {
-            padding: 100px 8%;
+            padding: 80px 8%;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
@@ -191,50 +160,22 @@
 
         .f-card {
             background: var(--card-bg);
-            padding: 45px 30px;
+            padding: 40px;
             border-radius: 40px;
             border: 1px solid rgba(255,255,255,0.05);
             text-align: center;
-            transition: 0.4s;
         }
 
-        .f-card:hover {
-            border-color: var(--accent);
-            transform: translateY(-10px);
-            background: rgba(228, 176, 74, 0.02);
+        /* Real Visitor Counter Footer Style */
+        .visitor-stats {
+            margin-top: 30px;
+            padding: 15px;
+            background: rgba(255,255,255,0.02);
+            display: inline-block;
+            border-radius: 15px;
+            font-size: 12px;
+            color: #444;
         }
-
-        .f-card h3 {
-            font-size: 24px;
-            margin: 20px 0 15px;
-            color: var(--accent);
-        }
-
-        /* Reviews */
-        .reviews {
-            padding: 80px 8%;
-            text-align: center;
-        }
-
-        .r-grid {
-            display: flex;
-            gap: 20px;
-            overflow-x: auto;
-            padding: 30px 0;
-            scrollbar-width: none;
-        }
-
-        .r-card {
-            min-width: 300px;
-            background: #111;
-            padding: 30px;
-            border-radius: 25px;
-            text-align: right;
-            border: 1px solid #1a1a1a;
-        }
-
-        /* Hidden Keywords for SEO */
-        .seo-tags { display: none; }
 
         footer {
             border-top: 1px solid #111;
@@ -244,8 +185,8 @@
         }
 
         @media (max-width: 768px) {
+            nav { padding: 10px 5%; }
             .hero h1 { font-size: 40px; }
-            .btn-smart { width: 90%; justify-content: center; }
         }
     </style>
 </head>
@@ -256,107 +197,78 @@
 
 <nav>
     <div class="logo">AL-MAZAD</div>
+    <div class="live-counter">
+        <span class="dot"></span>
+        <span id="active-users">24</span> متصل الآن
+    </div>
 </nav>
 
 <section class="hero">
-    <div class="badge" data-aos="fade-down">أول منصة مزادات ذكية في العراق 🇮🇶</div>
-    <h1 data-aos="fade-up">المزاد العراقي<br>AL-MAZAD</h1>
+    <div data-aos="fade-down" style="color: var(--accent); font-weight: bold; margin-bottom: 15px;">إحصائيات المزاد اليوم</div>
+    <h1 data-aos="fade-up">المزاد العراقي الأول</h1>
     <p data-aos="fade-up" data-aos-delay="100">
-        الآن، يمكنك المشاركة في أقوى المزادات الحية للسيارات، العقارات، والمقتنيات النادرة في العراق من هاتفك فقط. بيئة آمنة، شفافة، وسهلة الاستخدام.
+        انضم لأكبر تجمع للمزايدين في العراق. سيارات، مقتنيات، وأرقام مميزة.
     </p>
 
-    <div class="download-container" data-aos="zoom-in" data-aos-delay="200">
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 15px;" data-aos="zoom-in" data-aos-delay="200">
         <a id="download-btn" class="btn-smart" href="https://www.mediafire.com/file/wp2hmxxpk13noi2/app-release.apk/file">
             <span id="os-icon">🤖</span>
             <span id="os-text">تحميل تطبيق الأندرويد</span>
         </a>
-        
-        <div class="stats-badge">
-            <span class="stars">★★★★★</span>
-            <span>+100k عمليات تحميل موثوقة</span>
-        </div>
     </div>
 
     <div class="app-frame" data-aos="fade-up" data-aos-delay="300">
-        <img src="mockup.png" class="main-img" alt="Iraqi Auction App - تطبيق المزاد العراقي">
+        <img src="mockup.png" class="main-img" alt="تطبيق المزاد العراقي">
     </div>
 </section>
 
 <section class="features">
     <div class="f-card" data-aos="fade-up">
-        <h2>⚖️</h2>
-        <h3>مزاد عادل</h3>
-        <p>نظام مزايدة لحظي يضمن أعلى درجات النزاهة والشفافية لجميع المشاركين.</p>
+        <h3>⚖️ شفافية</h3>
+        <p>كل مزايدة مسجلة ومضمونة لضمان حقك.</p>
     </div>
-
     <div class="f-card" data-aos="fade-up" data-aos-delay="100">
-        <h2>🇮🇶</h2>
-        <h3>منصة عراقية 100%</h3>
-        <p>مصمم خصيصاً ليناسب احتياجات السوق العراقي مع دعم كامل للغة العربية.</p>
+        <h3>⚡ سرعة</h3>
+        <p>نظام تنبيهات فوري عند المزايدة عليك.</p>
     </div>
-
     <div class="f-card" data-aos="fade-up" data-aos-delay="200">
-        <h2>💎</h2>
-        <h3>قطع حصرية</h3>
-        <p>وصول حصري لأندر السيارات، الساعات، والعملات القديمة المتاحة في السوق.</p>
+        <h3>🔒 أمان</h3>
+        <p>حماية كاملة لبياناتك وعمليات الدفع.</p>
     </div>
 </section>
-
-<section class="reviews" data-aos="fade-up">
-    <h2 style="margin-bottom: 10px;">آراء مستخدمينا</h2>
-    <p style="color:#666; margin-bottom: 30px;">انضم إلى آلاف المزايدين السعداء</p>
-    <div class="r-grid">
-        <div class="r-card">
-            <span class="stars">★★★★★</span>
-            <p style="margin-top:15px">"التطبيق سهل جداً والمزادات حقيقية. اشتريت سيارتي من خلالهم."</p>
-            <h4 style="color:var(--accent); margin-top:10px;">علي الكرخي</h4>
-        </div>
-        <div class="r-card">
-            <span class="stars">★★★★★</span>
-            <p style="margin-top:15px">"أفضل منصة مزاد في العراق بدون منازع. سرعة في التحديث وأمان."</p>
-            <h4 style="color:var(--accent); margin-top:10px;">عمر البصراوي</h4>
-        </div>
-        <div class="r-card">
-            <span class="stars">★★★★★</span>
-            <p style="margin-top:15px">"كنت أبحث عن تطبيق مزادات سيارات العراق ووجدت ضالتي هنا."</p>
-            <h4 style="color:var(--accent); margin-top:10px;">سجاد أربيل</h4>
-        </div>
-    </div>
-</section>
-
-<div class="seo-tags">
-    <h2>Iraqi Auction Platform - AL-MAZAD</h2>
-    <p>The best way to buy and sell cars in Iraq via live auction. Baghdad auction, Erbil cars market, Basra bidding.</p>
-    <p>مزاد السيارات، بيع وشراء، عقارات بغداد، سيارات أربيل، سوق المفتوح العراق، حراج السيارات.</p>
-</div>
 
 <footer>
-    <p>© 2026 AL-MAZAD — المزاد العراقي | جميع الحقوق محفوظة</p>
-    <p style="font-size: 11px; margin-top: 10px; opacity: 0.5;">Developed for the Iraqi Market</p>
+    <p>© 2026 AL-MAZAD — المزاد العراقي</p>
+    
+    <div class="visitor-stats">
+        <span>إجمالي زيارات المنصة: </span>
+        <img src="https://hitwebcounter.com/counter/counter.php?page=9452026&style=0006&nbdigits=5&type=page&initCount=1500" title="Free Counter" Alt="web counter" border="0" style="vertical-align: middle; filter: grayscale(1) invert(1); opacity: 0.6;">
+    </div>
 </footer>
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
     AOS.init({ duration: 1000, once: true });
 
-    // Device Detection Script
-    function updateDownloadButton() {
+    // سكريبت لتغيير عدد المتصلين الآن بشكل عشوائي ليعطي طابع الحياة للموقع
+    function updateLiveUsers() {
+        const baseUsers = 18;
+        const randomExtra = Math.floor(Math.random() * 15);
+        document.getElementById('active-users').innerText = baseUsers + randomExtra;
+    }
+    setInterval(updateLiveUsers, 5000);
+    updateLiveUsers();
+
+    // اكتشاف الجهاز
+    function detectOS() {
         const userAgent = navigator.userAgent || navigator.vendor || window.opera;
         const btnText = document.getElementById('os-text');
-        const btnIcon = document.getElementById('os-icon');
-        const btn = document.getElementById('download-btn');
-
-        if (/android/i.test(userAgent)) {
-            btnText.innerText = "تحميل مباشر (Android APK)";
-            btnIcon.innerText = "🤖";
-        } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-            btnText.innerText = "قريباً على App Store";
-            btnIcon.innerText = "🍎";
-            btn.style.opacity = "0.6";
-            btn.onclick = (e) => e.preventDefault();
+        if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+            btnText.innerText = "قريباً على آيفون";
+            document.getElementById('os-icon').innerText = "🍎";
         }
     }
-    updateDownloadButton();
+    detectOS();
 </script>
 
 </body>
